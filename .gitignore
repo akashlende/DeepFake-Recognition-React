@@ -1,4 +1,6 @@
 /build
 /node_modules
 package-lock.json
-/build
+/github-assets
+/Documentation
+yarn.lock
