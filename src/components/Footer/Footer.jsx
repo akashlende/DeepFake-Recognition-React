@@ -24,20 +24,20 @@ import PropTypes from "prop-types";
 import { Container, Row, Nav, NavItem, NavLink } from "reactstrap";
 
 class Footer extends React.Component {
-	render() {
-		return (
-			<footer className='footer'>
-				<Container fluid>
-					<Nav>
-						<h5>SIH 2020</h5>
-					</Nav>
-					<div className='copyright'>
-						<h5>The Sentinels | MES College of Engineering Pune</h5>
-					</div>
-				</Container>
-			</footer>
-		);
-	}
+  render() {
+    return (
+      <footer className="footer">
+        <Container fluid>
+          <Nav>
+            <h5>Smart India Hackathon 2020</h5>
+          </Nav>
+          <div className="copyright">
+            <h5>The Sentinels | MES College of Engineering Pune</h5>
+          </div>
+        </Container>
+      </footer>
+    );
+  }
 }
 
 export default Footer;
