@@ -66,7 +66,7 @@ class Classify extends React.Component {
 					text: "Pre-processing Video...",
 					progress: this.state.progress + 1
 				});
-			}, Math.random() * 100);
+			}, Math.random() * 1000);
 		}
 	}
 	readFileAsync(file) {

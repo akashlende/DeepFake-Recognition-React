@@ -76,7 +76,8 @@ class Result extends React.Component {
 			respnsive: true,
 			scrollParent: true,
 			mediaControls: true,
-			backend: "MediaElement"
+			backend: "MediaElement",
+			cursorColor: "white"
 		});
 		console.log(soundFile);
 		this.wavesurfer.load(soundFile);
