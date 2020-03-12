@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /*!
 
 =========================================================
@@ -18,231 +19,217 @@
 import React from "react";
 
 // reactstrap components
-import {
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-  FormGroup,
-  Form,
-  Input,
-  Row,
-  Col
-} from "reactstrap";
+import { Button, Card, CardBody, CardFooter, Row, Col } from "reactstrap";
 
 class UserProfile extends React.Component {
-  render() {
-    return (
-      <>
-        <div className="content">
-          <Row>
-            <Col md="4">
-              <Card className="card-user">
-                <CardBody>
-                  <div className="author">
-                    <img
-                      src={require("assets/img/sakshi.jpeg")}
-                      className="avatar"
-                    />
-                    <h5 className="title">Sakshi Doshi</h5>
-                    <p className="description">TEAM-LEAD</p>
-                  </div>
-                </CardBody>
-                <CardFooter>
-                  <div className="button-container">
-                    <a
-                      href="https://www.linkedin.com/in/richa-maurya-566469193"
-                      target="_blank"
-                    >
-                      <Button className="btn-icon btn-round">
-                        <i className="fab fa-github" />
-                      </Button>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/richa-maurya-566469193"
-                      target="_blank"
-                    >
-                      <Button className="btn-icon btn-round">
-                        <i className="fab fa-linkedin" />
-                      </Button>
-                    </a>
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col md="4">
-              <Card className="card-user">
-                <CardBody>
-                  <div className="author">
-                    <img
-                      src={require("assets/img/parag.jpeg")}
-                      className="avatar"
-                    />
-                    <h5 className="title">Parag Ghorpade</h5>
-                    <p className="description">MACHINE-LEARNING</p>
-                  </div>
-                </CardBody>
-                <CardFooter>
-                  <div className="button-container">
-                    <a
-                      href="https://www.linkedin.com/in/richa-maurya-566469193"
-                      target="_blank"
-                    >
-                      <Button className="btn-icon btn-round">
-                        <i className="fab fa-github" />
-                      </Button>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/richa-maurya-566469193"
-                      target="_blank"
-                    >
-                      <Button className="btn-icon btn-round">
-                        <i className="fab fa-linkedin" />
-                      </Button>
-                    </a>
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col md="4">
-              <Card className="card-user">
-                <CardBody>
-                  <div className="author">
-                    <img
-                      src={require("assets/img/akash.jpeg")}
-                      className="avatar"
-                    />
-                    <h5 className="title">Akash Lende</h5>
-                    <p className="description">FRONT-END</p>
-                  </div>
-                </CardBody>
-                <CardFooter>
-                  <div className="button-container">
-                    <a href="https://github.com/akashlende" target="_blank">
-                      <Button className="btn-icon btn-round">
-                        <i className="fab fa-github" />
-                      </Button>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/akash-lende-b24338193"
-                      target="_blank"
-                    >
-                      <Button className="btn-icon btn-round">
-                        <i className="fab fa-linkedin" />
-                      </Button>
-                    </a>
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col md="4">
-              <Card className="card-user">
-                <CardBody>
-                  <div className="author">
-                    <img
-                      src={require("assets/img/richa.jpg")}
-                      className="avatar"
-                    />
-                    <h5 className="title">Richa Maurya</h5>
-                    <p className="description">FRONT-END</p>
-                  </div>
-                </CardBody>
-                <CardFooter>
-                  <div className="button-container">
-                    <a
-                      href="https://www.linkedin.com/in/richa-maurya-566469193"
-                      target="_blank"
-                    >
-                      <Button className="btn-icon btn-round">
-                        <i className="fab fa-github" />
-                      </Button>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/richa-maurya-566469193"
-                      target="_blank"
-                    >
-                      <Button className="btn-icon btn-round">
-                        <i className="fab fa-linkedin" />
-                      </Button>
-                    </a>
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col md="4">
-              <Card className="card-user">
-                <CardBody>
-                  <div className="author">
-                    <img
-                      src={require("assets/img/richa.jpg")}
-                      className="avatar"
-                    />
-                    <h5 className="title">Varun Irani</h5>
-                    <p className="description">FRONT-END</p>
-                  </div>
-                </CardBody>
-                <CardFooter>
-                  <div className="button-container">
-                    <a
-                      href="https://www.linkedin.com/in/hrishikesh-mane-755bab16a"
-                      target="_blank"
-                    >
-                      <Button className="btn-icon btn-round">
-                        <i className="fab fa-github" />
-                      </Button>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/hrishikesh-mane-755bab16a"
-                      target="_blank"
-                    >
-                      <Button className="btn-icon btn-round" color="google">
-                        <i className="fab fa-linkedin" />
-                      </Button>
-                    </a>
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col md="4">
-              <Card className="card-user">
-                <CardBody>
-                  <div className="author">
-                    <img
-                      src={require("assets/img/mane.jpeg")}
-                      className="avatar"
-                    />
-                    <h5 className="title">hrishikesh Mane</h5>
-                    <p className="description">BACK-END</p>
-                  </div>
-                </CardBody>
-                <CardFooter>
-                  <div className="button-container">
-                    <a href="https://github.com/hrishikeshmane" target="_blank">
-                      <Button className="btn-icon btn-round">
-                        <i className="fab fa-github" />
-                      </Button>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/hrishikesh-mane-755bab16a"
-                      target="_blank"
-                    >
-                      <Button className="btn-icon btn-round">
-                        <i className="fab fa-linkedin" />
-                      </Button>
-                    </a>
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-          </Row>
-        </div>
-      </>
-    );
-  }
+	render() {
+		return (
+			<>
+				<div className='content'>
+					<Row>
+						<Col md='4'>
+							<Card className='card-user'>
+								<CardBody>
+									<div className='author'>
+										<img
+											alt='sakshi'
+											src={require("assets/img/sakshi.jpeg")}
+											className='avatar'
+										/>
+										<h5 className='title'>Sakshi Doshi</h5>
+										<p className='description'>TEAM-LEAD</p>
+									</div>
+								</CardBody>
+								<CardFooter>
+									<div className='button-container'>
+										<a
+											href='https://www.linkedin.com/in/richa-maurya-566469193'
+											// eslint-disable-next-line react/jsx-no-target-blank
+											target='_blank'>
+											<Button className='btn-icon btn-round'>
+												<i className='fab fa-github' />
+											</Button>
+										</a>
+										<a
+											href='https://www.linkedin.com/in/richa-maurya-566469193'
+											// eslint-disable-next-line react/jsx-no-target-blank
+											target='_blank'>
+											<Button className='btn-icon btn-round'>
+												<i className='fab fa-linkedin' />
+											</Button>
+										</a>
+									</div>
+								</CardFooter>
+							</Card>
+						</Col>
+						<Col md='4'>
+							<Card className='card-user'>
+								<CardBody>
+									<div className='author'>
+										<img
+											alt='parag'
+											src={require("assets/img/parag.jpeg")}
+											className='avatar'
+										/>
+										<h5 className='title'>Parag Ghorpade</h5>
+										<p className='description'>MACHINE-LEARNING</p>
+									</div>
+								</CardBody>
+								<CardFooter>
+									<div className='button-container'>
+										<a
+											href='https://www.linkedin.com/in/richa-maurya-566469193'
+											target='_blank'>
+											<Button className='btn-icon btn-round'>
+												<i className='fab fa-github' />
+											</Button>
+										</a>
+										<a
+											href='https://www.linkedin.com/in/richa-maurya-566469193'
+											target='_blank'>
+											<Button className='btn-icon btn-round'>
+												<i className='fab fa-linkedin' />
+											</Button>
+										</a>
+									</div>
+								</CardFooter>
+							</Card>
+						</Col>
+						<Col md='4'>
+							<Card className='card-user'>
+								<CardBody>
+									<div className='author'>
+										<img
+											alt='akash'
+											src={require("assets/img/akash.jpeg")}
+											className='avatar'
+										/>
+										<h5 className='title'>Akash Lende</h5>
+										<p className='description'>FRONT-END</p>
+									</div>
+								</CardBody>
+								<CardFooter>
+									<div className='button-container'>
+										<a href='https://github.com/akashlende' target='_blank'>
+											<Button className='btn-icon btn-round'>
+												<i className='fab fa-github' />
+											</Button>
+										</a>
+										<a
+											href='https://www.linkedin.com/in/akash-lende-b24338193'
+											target='_blank'>
+											<Button className='btn-icon btn-round'>
+												<i className='fab fa-linkedin' />
+											</Button>
+										</a>
+									</div>
+								</CardFooter>
+							</Card>
+						</Col>
+					</Row>
+					<Row>
+						<Col md='4'>
+							<Card className='card-user'>
+								<CardBody>
+									<div className='author'>
+										<img
+											alt='richa'
+											src={require("assets/img/richa.jpg")}
+											className='avatar'
+										/>
+										<h5 className='title'>Richa Maurya</h5>
+										<p className='description'>FRONT-END</p>
+									</div>
+								</CardBody>
+								<CardFooter>
+									<div className='button-container'>
+										<a
+											href='https://www.linkedin.com/in/richa-maurya-566469193'
+											target='_blank'>
+											<Button className='btn-icon btn-round'>
+												<i className='fab fa-github' />
+											</Button>
+										</a>
+										<a
+											href='https://www.linkedin.com/in/richa-maurya-566469193'
+											target='_blank'>
+											<Button className='btn-icon btn-round'>
+												<i className='fab fa-linkedin' />
+											</Button>
+										</a>
+									</div>
+								</CardFooter>
+							</Card>
+						</Col>
+						<Col md='4'>
+							<Card className='card-user'>
+								<CardBody>
+									<div className='author'>
+										<img
+											alt='richa'
+											src={require("assets/img/richa.jpg")}
+											className='avatar'
+										/>
+										<h5 className='title'>Varun Irani</h5>
+										<p className='description'>FRONT-END</p>
+									</div>
+								</CardBody>
+								<CardFooter>
+									<div className='button-container'>
+										<a
+											href='https://www.linkedin.com/in/hrishikesh-mane-755bab16a'
+											target='_blank'>
+											<Button className='btn-icon btn-round'>
+												<i className='fab fa-github' />
+											</Button>
+										</a>
+										<a
+											href='https://www.linkedin.com/in/hrishikesh-mane-755bab16a'
+											target='_blank'>
+											<Button className='btn-icon btn-round' color='google'>
+												<i className='fab fa-linkedin' />
+											</Button>
+										</a>
+									</div>
+								</CardFooter>
+							</Card>
+						</Col>
+						<Col md='4'>
+							<Card className='card-user'>
+								<CardBody>
+									<div className='author'>
+										<img
+											alt='mane'
+											src={require("assets/img/mane.jpeg")}
+											className='avatar'
+										/>
+										<h5 className='title'>hrishikesh Mane</h5>
+										<p className='description'>BACK-END</p>
+									</div>
+								</CardBody>
+								<CardFooter>
+									<div className='button-container'>
+										<a href='https://github.com/hrishikeshmane' target='_blank'>
+											<Button className='btn-icon btn-round'>
+												<i className='fab fa-github' />
+											</Button>
+										</a>
+										<a
+											href='https://www.linkedin.com/in/hrishikesh-mane-755bab16a'
+											target='_blank'>
+											<Button className='btn-icon btn-round'>
+												<i className='fab fa-linkedin' />
+											</Button>
+										</a>
+									</div>
+								</CardFooter>
+							</Card>
+						</Col>
+					</Row>
+				</div>
+			</>
+		);
+	}
 }
 
 export default UserProfile;

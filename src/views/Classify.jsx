@@ -22,6 +22,7 @@ import { Card, CardBody, Row, Col, Progress, Button } from "reactstrap";
 import Dropzone from "react-dropzone";
 import ReactPlayer from "react-player";
 import Result from "./Result";
+import Axios from "axios";
 
 class ProgressBar extends React.Component {
 	render() {
@@ -36,7 +37,7 @@ class ProgressBar extends React.Component {
 						</>
 					) : (
 						<Button color='primary' onClick={() => this.props.changeClicked()}>
-							CLASSIFY
+							SHOW RESULTS
 						</Button>
 					)}
 				</Col>
@@ -53,7 +54,8 @@ class Classify extends React.Component {
 			dropped: false,
 			url: "",
 			text: "Uploading Video...",
-			clicked: false
+			clicked: false,
+			result: null
 		};
 		this.player = React.createRef();
 		this.changeClicked = this.changeClicked.bind(this);
@@ -63,7 +65,10 @@ class Classify extends React.Component {
 		if (this.state.progress < 100) {
 			setTimeout(() => {
 				this.setState({
-					text: "Pre-processing Video...",
+					text:
+						this.state.progress >= 60
+							? "Classifying Video..."
+							: "Pre-processing Video...",
 					progress: this.state.progress + 1
 				});
 			}, Math.random() * 1000);
@@ -75,7 +80,20 @@ class Classify extends React.Component {
 			reader.onerror = reject;
 			reader.readAsDataURL(file);
 			reader.onload = () => {
-				resolve(reader.result);
+				const formData = new FormData();
+				const image = file;
+				formData.append("image", image);
+				Axios.post("/predict", formData, {
+					headers: {
+						"Content-Type": "multipart/form-data"
+					}
+				}).then(res => {
+					this.setState({
+						result: res.data.predictions[0].label,
+						progress: 100
+					});
+					resolve(reader.result);
+				});
 			};
 		});
 	}
@@ -99,7 +117,7 @@ class Classify extends React.Component {
 						<Col sm='12'>
 							<h2>Classify</h2>
 						</Col>
-						<Col sm='6'>
+						<Col sm='12' md='12' lg='6'>
 							<Card>
 								<CardBody>
 									<Row>
@@ -144,7 +162,9 @@ class Classify extends React.Component {
 							</Card>
 						</Col>
 					</Row>
-					{this.state.clicked ? <Result url={this.state.url} /> : null}
+					{this.state.clicked ? (
+						<Result url={this.state.url} result={this.state.result} />
+					) : null}
 				</div>
 			</>
 		);
