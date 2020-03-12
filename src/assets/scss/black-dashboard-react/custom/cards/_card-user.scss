@@ -50,12 +50,13 @@
     }
 
     .avatar {
-      width: 124px;
-      height: 124px;
-      border: 5px solid lighten($black,5%);
-      border-bottom-color: $transparent-bg;
+      width: 180px;
+      height: 180px;
+      border: 5px solid #2F3F65 ;
+      border-bottom-color:rgba($primary,0.6);
       background-color: $transparent-bg;
       position: relative;
+      object-fit:cover;
     }
 
     .card-body {
