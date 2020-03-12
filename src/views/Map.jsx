@@ -18,9 +18,16 @@
 import React from "react";
 // react plugin used to create google mapsimport { Document, Page, Text, View, StyleSheet } from "react-pdf";
 // reactstrap components
-import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
-import PDFViewer from "react-pdf";
-import MyDocument from "./Doc";
+import { Card, Row, Col, CardBody, Button } from "reactstrap";
+import {
+  PDFViewer,
+  PDFDownloadLink,
+  Page,
+  Document
+} from "@react-pdf/renderer";
+import MyDocument from "./MyDocument";
+
+import ReactPDF from "@react-pdf/renderer";
 
 class Map extends React.Component {
   state = {
@@ -30,17 +37,30 @@ class Map extends React.Component {
 
   onDocumentLoadSuccess = ({ numPages }) => {
     this.setState({ numPages });
+    ReactPDF.render(<MyDocument />, `./example.pdf`);
   };
   render() {
+    let doc = (
+      <Document>
+        <Page size="A4">Akash</Page>
+      </Document>
+    );
     return (
       <>
         <div className="content">
           <Row>
             <Col md="12">
               <Card>
-                <PDFViewer>
-                  <MyDocument />
-                </PDFViewer>
+                <CardBody>
+                  <PDFDownloadLink
+                    document={<MyDocument />}
+                    fileName="report.pdf"
+                    tag="button"
+                    className="btn btn-primary"
+                  >
+                    Download Report
+                  </PDFDownloadLink>
+                </CardBody>
               </Card>
             </Col>
           </Row>

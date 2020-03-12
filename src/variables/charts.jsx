@@ -15,11 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-// ##############################
-// // // Chart variables
-// #############################
 
-// chartExample1 and chartExample2 options
 let chart1_2_options = {
   maintainAspectRatio: false,
   legend: {
@@ -69,9 +65,9 @@ let chart1_2_options = {
   }
 };
 
-// #########################################
-// // // used inside src/views/Dashboard.jsx
-// #########################################
+let labels = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+let data = [800, 1000, 700, 800, 1200, 800, 3000];
+
 let chartExample2 = {
   data: canvas => {
     let ctx = canvas.getContext("2d");
@@ -83,7 +79,7 @@ let chartExample2 = {
     gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
 
     return {
-      labels: ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"],
+      labels: labels,
       datasets: [
         {
           label: "Data",
@@ -96,7 +92,7 @@ let chartExample2 = {
           pointBackgroundColor: "#1f8ef1",
           pointBorderColor: "rgba(255,255,255,0)",
           pointHoverBackgroundColor: "#1f8ef1",
-          data: [800, 1000, 700, 800, 1200, 800, 3000]
+          data: data
         }
       ]
     };
@@ -105,5 +101,5 @@ let chartExample2 = {
 };
 
 module.exports = {
-  chartExample2 // in src/views/Dashboard.jsx
+  chartExample2
 };
