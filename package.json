@@ -5,6 +5,7 @@
 	"homepage": "https://creativetimofficial.github.io/black-dashboard-react/#/dashboard",
 	"dependencies": {
 		"@types/react": "16.9.23",
+		"axios": "^0.19.2",
 		"bootstrap": "4.4.1",
 		"chart.js": "^2.9.3",
 		"classnames": "2.2.6",
@@ -35,6 +36,7 @@
 	"eslintConfig": {
 		"extends": "react-app"
 	},
+	"proxy": "http://localhost:5000",
 	"browserslist": [
 		">0.2%",
 		"not dead",

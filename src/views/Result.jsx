@@ -122,11 +122,17 @@ class Result extends React.Component {
 
 											<br />
 											<i
-												className='fa fa-check fa-5x'
-												style={{ color: "Green" }}
+												className={
+													this.props.result
+														? "fa fa-times fa-5x"
+														: "fa fa-check fa-5x"
+												}
+												style={{ color: this.props.result ? "Red" : "Green" }}
 												aria-hidden='true'
 											/>
-											<p className='mt-2 mb-4'>The video is not fake</p>
+											<p className='mt-2 mb-4'>
+												The video is {this.props.result ? "FAKE" : "REAL"}
+											</p>
 										</CardText>
 									</CardBody>
 								</Card>
@@ -144,12 +150,33 @@ class Result extends React.Component {
 												className='fa fa-times fa-5x'
 												style={{ color: "Red" }}
 											/>
-											<p className='mt-5 mb-4'>The audio is fake</p>
+											<p className='mt-2 mb-4'>The audio is fake</p>
 										</CardText>
 									</CardBody>
 								</Card>
 							</Col>
 						</Row>
+					</Col>
+				</Row>
+				<Row className='justify-content-center'>
+					<Col sm='4'>
+						<Card>
+							<CardBody>
+								<CardTitle className='h4'>Result Satisfaction</CardTitle>
+								<CardText>
+									Are you satisfied with the results? This will help us improve
+									our model.
+								</CardText>
+								<Row className='justify-content-center'>
+									<Button className='btn-simple btn-success'>
+										Yes <i class='fa fa-thumbs-up' aria-hidden='true'></i>
+									</Button>
+									<Button className='btn-simple btn-danger'>
+										No <i class='fa fa-thumbs-down' aria-hidden='true'></i>
+									</Button>
+								</Row>
+							</CardBody>
+						</Card>
 					</Col>
 				</Row>
 			</div>
