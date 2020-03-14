@@ -106,7 +106,8 @@ class AdminNavbar extends React.Component {
 							<a
 								className='d-none d-md-block'
 								href='https://www.sih.gov.in/'
-								target='_blank' rel="noopener noreferrer">
+								target='_blank'
+								rel='noopener noreferrer'>
 								<img
 									className='pr-1'
 									height='50px'

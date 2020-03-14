@@ -18,56 +18,50 @@
 import React from "react";
 // react plugin used to create google mapsimport { Document, Page, Text, View, StyleSheet } from "react-pdf";
 // reactstrap components
-import { Card, Row, Col, CardBody, Button } from "reactstrap";
-import {
-  PDFViewer,
-  PDFDownloadLink,
-  Page,
-  Document
-} from "@react-pdf/renderer";
+import { Card, Row, Col, CardBody } from "reactstrap";
+import { PDFDownloadLink, Page, Document } from "@react-pdf/renderer";
 import MyDocument from "./MyDocument";
 
 import ReactPDF from "@react-pdf/renderer";
 
 class Map extends React.Component {
-  state = {
-    numPages: null,
-    pageNumber: 1
-  };
+	state = {
+		numPages: null,
+		pageNumber: 1
+	};
 
-  onDocumentLoadSuccess = ({ numPages }) => {
-    this.setState({ numPages });
-    ReactPDF.render(<MyDocument />, `./example.pdf`);
-  };
-  render() {
-    let doc = (
-      <Document>
-        <Page size="A4">Akash</Page>
-      </Document>
-    );
-    return (
-      <>
-        <div className="content">
-          <Row>
-            <Col md="12">
-              <Card>
-                <CardBody>
-                  <PDFDownloadLink
-                    document={<MyDocument />}
-                    fileName="report.pdf"
-                    tag="button"
-                    className="btn btn-primary"
-                  >
-                    Download Report
-                  </PDFDownloadLink>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-        </div>
-      </>
-    );
-  }
+	onDocumentLoadSuccess = ({ numPages }) => {
+		this.setState({ numPages });
+		ReactPDF.render(<MyDocument />, `./example.pdf`);
+	};
+	render() {
+		let doc = (
+			<Document>
+				<Page size='A4'>Akash</Page>
+			</Document>
+		);
+		return (
+			<>
+				<div className='content'>
+					<Row>
+						<Col md='12'>
+							<Card>
+								<CardBody>
+									<PDFDownloadLink
+										document={<MyDocument />}
+										fileName='report.pdf'
+										tag='button'
+										className='btn btn-primary'>
+										Download Report
+									</PDFDownloadLink>
+								</CardBody>
+							</Card>
+						</Col>
+					</Row>
+				</div>
+			</>
+		);
+	}
 }
 
 export default Map;

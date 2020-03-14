@@ -12481,12 +12481,13 @@ textarea.form-control {
         margin-top: -25px;
         right: -45px; }
   .card-user .avatar {
-    width: 124px;
-    height: 124px;
-    border: 5px solid #2b3553;
-    border-bottom-color: transparent;
+    width: 180px;
+    height: 180px;
+    border: 5px solid #2F3F65;
+    border-bottom-color: rgba(225, 78, 202, 0.6);
     background-color: transparent;
-    position: relative; }
+    position: relative;
+    object-fit: cover; }
   .card-user .card-body {
     min-height: 240px; }
   .card-user hr {
