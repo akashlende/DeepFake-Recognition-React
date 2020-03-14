@@ -21,7 +21,7 @@ import React from "react";
 // reactstrap components
 import { Button, Card, CardBody, CardFooter, Row, Col } from "reactstrap";
 
-class UserProfile extends React.Component {
+class About extends React.Component {
 	render() {
 		return (
 			<>
@@ -230,4 +230,4 @@ class UserProfile extends React.Component {
 	}
 }
 
-export default UserProfile;
+export default About;

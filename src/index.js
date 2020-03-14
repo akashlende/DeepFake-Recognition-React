@@ -29,11 +29,11 @@ import "assets/css/nucleo-icons.css";
 const hist = createBrowserHistory();
 
 ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      <Route path="/admin" render={props => <AdminLayout {...props} />} />
-      <Redirect from="/" to="/admin/home" />
-    </Switch>
-  </Router>,
-  document.getElementById("root")
+	<Router history={hist}>
+		<Switch>
+			<Route path='/admin' render={props => <AdminLayout {...props} />} />
+			<Redirect from='/' to='/admin/home' />
+		</Switch>
+	</Router>,
+	document.getElementById("root")
 );

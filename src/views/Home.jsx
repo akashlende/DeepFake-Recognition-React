@@ -51,15 +51,20 @@ class Home extends React.Component {
 									<Row className='justify-content-center'>
 										<Col lg='6' sm='12'>
 											<ReactPlayer
-												url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+												url='https://www.youtube.com/watch?v=C8FO0P2a3dA'
 												controls
-												className=''
+												className='mt-4'
 												width='parent'
+												style={{
+													border: "0.3em solid #e14eca",
+													borderRadius: "1em",
+													padding: "0.5em"
+												}}
 											/>
 										</Col>
 									</Row>
 									<Row>
-										<Col sm='12' className='mt-5'>
+										<Col sm='12' className='mt-3'>
 											<h3 className='text-justify ml-4 mr-4'>
 												What are we solving?
 											</h3>
@@ -123,10 +128,15 @@ class Home extends React.Component {
 									<Row className='justify-content-center'>
 										<Col lg='6' sm='12'>
 											<ReactPlayer
-												url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+												url='https://www.youtube.com/watch?v=C8FO0P2a3dA'
 												controls
 												className=''
 												width='parent'
+												style={{
+													border: "0.3em solid #e14eca",
+													borderRadius: "1em",
+													padding: "0.5em"
+												}}
 											/>
 										</Col>
 									</Row>

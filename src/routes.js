@@ -17,8 +17,8 @@
 */
 import Home from "views/Home.jsx";
 import Classify from "views/Classify.jsx";
-import Map from "views/Map.jsx";
-import UserProfile from "views/UserProfile.jsx";
+import Report from "views/Report.jsx";
+import About from "views/About.jsx";
 
 var routes = [
 	{
@@ -36,18 +36,18 @@ var routes = [
 		layout: "/admin"
 	},
 	{
-		path: "/map",
-		name: "Map",
-		icon: "tim-icons icon-pin",
-		component: Map,
+		path: "/report",
+		name: "Report",
+		icon: "far fa-file-pdf",
+		component: Report,
 		layout: "/admin"
 	},
 	{
 		path: "/about",
 		name: "About Us",
-		icon: "tim-icons icon-single-02",
-		component: UserProfile,
+		icon: "fas fa-users",
+		component: About,
 		layout: "/admin"
-	},
+	}
 ];
 export default routes;

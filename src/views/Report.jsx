@@ -19,28 +19,18 @@ import React from "react";
 // react plugin used to create google mapsimport { Document, Page, Text, View, StyleSheet } from "react-pdf";
 // reactstrap components
 import { Card, Row, Col, CardBody } from "reactstrap";
-import { PDFDownloadLink, Page, Document } from "@react-pdf/renderer";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import MyDocument from "./MyDocument";
 
-import ReactPDF from "@react-pdf/renderer";
+import { PDFViewer } from "@react-pdf/renderer";
 
-class Map extends React.Component {
+class Report extends React.Component {
 	state = {
 		numPages: null,
 		pageNumber: 1
 	};
 
-<<<<<<< HEAD
-	onDocumentLoadSuccess = ({ numPages }) => {
-		this.setState({ numPages });
-		ReactPDF.render(<MyDocument />, `./example.pdf`);
-	};
 	render() {
-		let doc = (
-			<Document>
-				<Page size='A4'>Akash</Page>
-			</Document>
-		);
 		return (
 			<>
 				<div className='content'>
@@ -49,7 +39,7 @@ class Map extends React.Component {
 							<Card>
 								<CardBody>
 									<PDFDownloadLink
-										document={<MyDocument />}
+										document={<MyDocument name='Akash' />}
 										fileName='report.pdf'
 										tag='button'
 										className='btn btn-primary'>
@@ -58,42 +48,16 @@ class Map extends React.Component {
 								</CardBody>
 							</Card>
 						</Col>
+						<Col md='12'>
+							<PDFViewer height='500px' className='col-md-12'>
+								<MyDocument />
+							</PDFViewer>
+						</Col>
 					</Row>
 				</div>
 			</>
 		);
 	}
-=======
-  render() {
-    return (
-      <>
-        <div className="content">
-          <Row>
-            <Col md="12">
-              <Card>
-                <CardBody>
-                  <PDFDownloadLink
-                    document={<MyDocument name="Akash" />}
-                    fileName="report.pdf"
-                    tag="button"
-                    className="btn btn-primary"
-                  >
-                    Download Report
-                  </PDFDownloadLink>
-                </CardBody>
-              </Card>
-            </Col>
-            <Col md="12">
-              <PDFViewer height="500px" className="col-md-12">
-                <MyDocument />
-              </PDFViewer>
-            </Col>
-          </Row>
-        </div>
-      </>
-    );
-  }
->>>>>>> 37bda7b8c942d88ee2856bb4591ecc58ef09f59b
 }
 
-export default Map;
+export default Report;
