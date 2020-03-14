@@ -30,6 +30,7 @@ class Map extends React.Component {
 		pageNumber: 1
 	};
 
+<<<<<<< HEAD
 	onDocumentLoadSuccess = ({ numPages }) => {
 		this.setState({ numPages });
 		ReactPDF.render(<MyDocument />, `./example.pdf`);
@@ -62,6 +63,37 @@ class Map extends React.Component {
 			</>
 		);
 	}
+=======
+  render() {
+    return (
+      <>
+        <div className="content">
+          <Row>
+            <Col md="12">
+              <Card>
+                <CardBody>
+                  <PDFDownloadLink
+                    document={<MyDocument name="Akash" />}
+                    fileName="report.pdf"
+                    tag="button"
+                    className="btn btn-primary"
+                  >
+                    Download Report
+                  </PDFDownloadLink>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col md="12">
+              <PDFViewer height="500px" className="col-md-12">
+                <MyDocument />
+              </PDFViewer>
+            </Col>
+          </Row>
+        </div>
+      </>
+    );
+  }
+>>>>>>> 37bda7b8c942d88ee2856bb4591ecc58ef09f59b
 }
 
 export default Map;
