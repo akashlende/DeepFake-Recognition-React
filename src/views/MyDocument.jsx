@@ -10,12 +10,19 @@ import {
 } from "@react-pdf/renderer";
 import logo from "assets/img/sih-logo.png";
 import tick from "assets/img/tick.png";
+import wrong from "assets/img/wrng.png";
 import line from "assets/img/line.png";
+import { supportsGoWithoutReloadUsingHash } from "history/DOMUtils";
 
 class MyDocument extends React.Component {
-  MyDocument(props) {}
+  MyDocument(props){
+    
+   
+  }
 
   render() {
+    const ans=this.props.ans;
+    console.log(this.props)
     return (
       <Document>
         <Page>
@@ -29,10 +36,11 @@ class MyDocument extends React.Component {
                   fontSize: 14
                 }}
               >
+             
                 The Sentinels
               </Text>
             </View>
-
+          
             <View style={{ position: "absolute", right: 67, top: 30 }}>
               <Image style={{ width: "40px" }} src={logo}></Image>
               <Text
@@ -43,6 +51,7 @@ class MyDocument extends React.Component {
                   fontSize: 14
                 }}
               >
+            
                 Smart India Hackathon 2020
               </Text>
             </View>
@@ -78,22 +87,50 @@ class MyDocument extends React.Component {
             <Text>DEEP FAKE VIDEO RECOGNITION REPORT</Text>
           </View>
           <View style={{ position: "absolute", top: 270, left: 245 }}>
+          {ans=="null"?(
+            
             <Image
-              src={tick}
-              style={{ width: "100px", height: "auto" }}
+            src={tick}
+            style={{ width: "100px", height: "auto" }}
             ></Image>
+            
+          ):(
+            <Image
+            src={wrong}
+            style={{ width: "100px", height: "auto" }}
+          ></Image>
+          )
+         } 
+         {ans=="null"?(
+           
+           
+           <Text style={{ position: "relative", top: 30, left: -25 }}>
+           Video Verified Real
+         </Text>
+            
+          ):(
+           
+           
             <Text style={{ position: "relative", top: 30, left: -25 }}>
-              Video Verified Real
+              Video Verified Fake
             </Text>
+          )
+         } 
+         
+           
+         
+            
+ 
+
           </View>
           <View
             style={{ fontSize: 14, position: "absolute", top: 480, left: 30 }}
           >
             <Text style={{ position: "absolute", textDecoration: "bold" }}>
-              File Checksum :
+              CHECKSUM :
             </Text>
-            <Text style={{ position: "absolute", left: 104 }}>
-              cd573cfaace07e7949bc0c46028904ff
+            <Text style={{ position: "absolute", left: 96 }}>
+           {this.props.hash}
             </Text>
           </View>
           <View
@@ -102,8 +139,8 @@ class MyDocument extends React.Component {
             <Text style={{ position: "absolute", textDecoration: "bold" }}>
               URL :
             </Text>
-            <Text style={{ position: "absolute", left: 38 }}>
-              https://www.sample.com
+            <Text style={{ position: "absolute", left: 44 }}>
+             {this.props.path}
             </Text>
           </View>
           <View
@@ -113,7 +150,7 @@ class MyDocument extends React.Component {
               Duration :
             </Text>
             <Text style={{ position: "absolute", left: 62 }}>
-              2hr 23min 15sec
+            {this.props.duration}
             </Text>
           </View>
           <View
@@ -122,7 +159,7 @@ class MyDocument extends React.Component {
             <Text style={{ position: "absolute", textDecoration: "bold" }}>
               Size :
             </Text>
-            <Text style={{ position: "absolute", left: 38 }}>1024 KB</Text>
+            <Text style={{ position: "absolute", left: 38 }}>{this.props.size}</Text>
           </View>
           <View
             style={{ fontSize: 14, position: "absolute", top: 600, left: 30 }}
@@ -131,7 +168,7 @@ class MyDocument extends React.Component {
               Bitrate :
             </Text>
             <Text style={{ position: "absolute", left: 52 }}>
-              24 frames/second
+            {this.props.bit}frames/second
             </Text>
           </View>
           <View
@@ -140,7 +177,7 @@ class MyDocument extends React.Component {
             <Text style={{ position: "absolute", textDecoration: "bold" }}>
               Real to Fake Frame Ratio :
             </Text>
-            <Text style={{ position: "absolute", left: 164 }}>0.62</Text>
+            <Text style={{ position: "absolute", left: 164 }}>{this.props.ratio}</Text>
           </View>
           <View
             style={{

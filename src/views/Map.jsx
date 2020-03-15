@@ -33,31 +33,43 @@ class Map extends React.Component {
   state = {
     numPages: null,
     pageNumber: 1
+    
   };
 
+  onDocumentLoadSuccess = ({ numPages }) => {
+    this.setState({ numPages });
+  
+    ReactPDF.render(<MyDocument />, `./example.pdf`);
+  };
   render() {
+    
     return (
       <>
         <div className="content">
+      
           <Row>
             <Col md="12">
               <Card>
                 <CardBody>
                   <PDFDownloadLink
-                    document={<MyDocument name="Akash" />}
-                    fileName="report.pdf"
-                    tag="button"
-                    className="btn btn-primary"
+                    document={<MyDocument 
+                      path="http://localhost:5000/files/test.mp4"
+                      hash="cf7bb66fc16f75e773255d2686a32c21"
+                      duration="217.78"
+                      size="10199203"
+                      bit="24 "
+                      ratio="0.62"
+                    ans="true"
+                      />}
+                      fileName="report.pdf"
+                      tag="button"
+                      className="btn btn-primary"
                   >
+                   
                     Download Report
                   </PDFDownloadLink>
                 </CardBody>
               </Card>
-            </Col>
-            <Col md="12">
-              <PDFViewer height="500px" className="col-md-12">
-                <MyDocument />
-              </PDFViewer>
             </Col>
           </Row>
         </div>
