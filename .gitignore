@@ -4,3 +4,4 @@ package-lock.json
 /github-assets
 /Documentation
 yarn.lock
+.DS_Store

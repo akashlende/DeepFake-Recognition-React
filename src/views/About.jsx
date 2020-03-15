@@ -21,7 +21,7 @@ import React from "react";
 // reactstrap components
 import { Button, Card, CardBody, CardFooter, Row, Col } from "reactstrap";
 
-class UserProfile extends React.Component {
+class About extends React.Component {
 	render() {
 		return (
 			<>
@@ -167,7 +167,7 @@ class UserProfile extends React.Component {
 									<div className='author'>
 										<img
 											alt='richa'
-											src={require("assets/img/richa.jpg")}
+											src={require("assets/img/varun.jpeg")}
 											className='avatar'
 										/>
 										<h5 className='title'>Varun Irani</h5>
@@ -176,15 +176,13 @@ class UserProfile extends React.Component {
 								</CardBody>
 								<CardFooter>
 									<div className='button-container'>
-										<a
-											href='https://www.linkedin.com/in/hrishikesh-mane-755bab16a'
-											target='_blank'>
+										<a href='https://github.com/VarunIrani' target='_blank'>
 											<Button className='btn-icon btn-round'>
 												<i className='fab fa-github' />
 											</Button>
 										</a>
 										<a
-											href='https://www.linkedin.com/in/hrishikesh-mane-755bab16a'
+											href='https://www.linkedin.com/in/varun-irani-b4275b192/'
 											target='_blank'>
 											<Button className='btn-icon btn-round' color='google'>
 												<i className='fab fa-linkedin' />
@@ -203,7 +201,7 @@ class UserProfile extends React.Component {
 											src={require("assets/img/mane.jpeg")}
 											className='avatar'
 										/>
-										<h5 className='title'>hrishikesh Mane</h5>
+										<h5 className='title'>Hrishikesh Mane</h5>
 										<p className='description'>BACK-END</p>
 									</div>
 								</CardBody>
@@ -232,4 +230,4 @@ class UserProfile extends React.Component {
 	}
 }
 
-export default UserProfile;
+export default About;

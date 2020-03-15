@@ -126,7 +126,9 @@ class Sidebar extends React.Component {
 										activeClassName='active'
 										onClick={this.props.toggleSidebar}>
 										<i className={prop.icon} />
-										<p>{rtlActive ? prop.rtlName : prop.name}</p>
+										<p className='h5' style={{ color: "white" }}>
+											{rtlActive ? prop.rtlName : prop.name}
+										</p>
 									</NavLink>
 								</li>
 							);

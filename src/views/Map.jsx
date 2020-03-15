@@ -42,7 +42,7 @@ class Map extends React.Component {
     ReactPDF.render(<MyDocument />, `./example.pdf`);
   };
   render() {
-    
+   
     return (
       <>
         <div className="content">
@@ -59,7 +59,7 @@ class Map extends React.Component {
                       size="10199203"
                       bit="24 "
                       ratio="0.62"
-                    ans="true"
+                     ans="null"
                       />}
                       fileName="report.pdf"
                       tag="button"

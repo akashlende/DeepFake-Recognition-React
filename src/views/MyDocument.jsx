@@ -1,28 +1,42 @@
 import React from "react";
-import {
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-  Font,
-  Image
-} from "@react-pdf/renderer";
+import { Page, Text, View, Document, Image } from "@react-pdf/renderer";
 import logo from "assets/img/sih-logo.png";
 import tick from "assets/img/tick.png";
 import wrong from "assets/img/wrng.png";
 import line from "assets/img/line.png";
 import { supportsGoWithoutReloadUsingHash } from "history/DOMUtils";
+import { ListGroupItem } from "reactstrap";
 
 class MyDocument extends React.Component {
+
   MyDocument(props){
     
-   
+    
   }
-
+	getWeekDay(n) {
+		switch (n) {
+			case 0:
+				return "Sunday";
+			case 1:
+				return "Monday";
+			case 2:
+				return "Tuesday";
+			case 3:
+				return "Wednesday";
+			case 4:
+				return "Thursday";
+			case 5:
+				return "Friday";
+			case 6:
+				return "Saturday";
+			default:
+				return "";
+		}
+	}
   render() {
-    const ans=this.props.ans;
     console.log(this.props)
+    const ans=this.props.ans;
+    let d = new Date();
     return (
       <Document>
         <Page>
@@ -80,7 +94,9 @@ class MyDocument extends React.Component {
                 fontSize: 14
               }}
             >
-              14/03/2020 01:16 HRS
+              	{`${this.getWeekDay(d.getDay())}, ${d.getDate()}/${d.getMonth() +
+								1}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`}
+					
             </Text>
           </View>
           <View style={{ position: "absolute", top: 200, left: 110 }}>
@@ -210,8 +226,7 @@ class MyDocument extends React.Component {
         </Page>
       </Document>
     );
-  }
-}
+  }}
 
 export default MyDocument;
 

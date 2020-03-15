@@ -105,9 +105,6 @@ class Result extends React.Component {
 												className='mb-3'
 												controls
 												ref={this.player}
-												playing
-												// {...(this.state.seeked ? "playing" : null)}
-												// {...(this.state.playing ? "playing" : null)}
 												onReady={() => {
 													if (!this.state.seeked) {
 														this.player.current.seekTo(
@@ -118,8 +115,6 @@ class Result extends React.Component {
 													}
 												}}
 											/>
-											{/* <p>Deepfake found at : {this.createButtons()}</p> */}
-
 											<br />
 											<i
 												className={
@@ -159,7 +154,7 @@ class Result extends React.Component {
 					</Col>
 				</Row>
 				<Row className='justify-content-center'>
-					<Col sm='4'>
+					<Col md='6' sm='12' lg='4'>
 						<Card>
 							<CardBody>
 								<CardTitle className='h4'>Result Satisfaction</CardTitle>
@@ -169,10 +164,10 @@ class Result extends React.Component {
 								</CardText>
 								<Row className='justify-content-center'>
 									<Button className='btn-simple btn-success'>
-										Yes <i class='fa fa-thumbs-up' aria-hidden='true'></i>
+										Yes <i className='fa fa-thumbs-up' aria-hidden='true'></i>
 									</Button>
 									<Button className='btn-simple btn-danger'>
-										No <i class='fa fa-thumbs-down' aria-hidden='true'></i>
+										No <i className='fa fa-thumbs-down' aria-hidden='true'></i>
 									</Button>
 								</Row>
 							</CardBody>
