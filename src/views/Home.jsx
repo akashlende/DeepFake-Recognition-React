@@ -24,7 +24,7 @@ import { Link } from "react-router-dom";
 import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 
 // core components
-import { chartExample2 } from "variables/charts.jsx";
+import chartExample2 from "variables/charts.jsx";
 import ReactPlayer from "react-player";
 
 class Home extends React.Component {
@@ -146,10 +146,7 @@ class Home extends React.Component {
 						<Col lg='8'>
 							<Card className='card-chart'>
 								<CardHeader>
-									<h5 className='card-category'>Performance History</h5>
-									<CardTitle tag='h3'>
-										<i className='tim-icons icon-bell-55 text-info' /> 763,215
-									</CardTitle>
+									<CardTitle tag='h3'>Performance History</CardTitle>
 								</CardHeader>
 								<CardBody>
 									<div className='chart-area'>

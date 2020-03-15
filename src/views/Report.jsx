@@ -18,7 +18,7 @@
 import React from "react";
 // react plugin used to create google mapsimport { Document, Page, Text, View, StyleSheet } from "react-pdf";
 // reactstrap components
-import { Card, Row, Col, CardBody } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import MyDocument from "./MyDocument";
 
@@ -34,20 +34,18 @@ class Report extends React.Component {
 		return (
 			<>
 				<div className='content'>
-					<Row>
-						<Col md='12'>
-							<Card>
-								<CardBody>
-									<PDFDownloadLink
-										document={<MyDocument name='Akash' />}
-										fileName='report.pdf'
-										tag='button'
-										className='btn btn-primary'>
-										Download Report
-									</PDFDownloadLink>
-								</CardBody>
-							</Card>
+					<Row className='justify-content-center'>
+						<Col sm='6' md='6' lg='2'>
+							<PDFDownloadLink
+								document={<MyDocument name='Akash' />}
+								fileName='report.pdf'
+								tag='button'
+								className='btn btn-primary'>
+								Download Report
+							</PDFDownloadLink>
 						</Col>
+					</Row>
+					<Row className='mt-4'>
 						<Col md='12'>
 							<PDFViewer height='500px' className='col-md-12'>
 								<MyDocument />

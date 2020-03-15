@@ -30,7 +30,7 @@ class ProgressBar extends React.Component {
 		return (
 			<>
 				<Col sm='12' className='mb-3 mt-3 text-center'>
-					{this.props.progress <= 100 ? (
+					{this.props.result == null && this.props.progress < 100 ? (
 						<>
 							<h4>{this.props.text}</h4>
 							<Progress value={this.props.progress} />
@@ -88,8 +88,9 @@ class Classify extends React.Component {
 						"Content-Type": "multipart/form-data"
 					}
 				}).then(res => {
+					console.log(res.data);
 					this.setState({
-						result: res.data.predictions[0].label,
+						result: res.data.predictions.label,
 						progress: 100
 					});
 					resolve(reader.result);
@@ -120,12 +121,11 @@ class Classify extends React.Component {
 						<Col sm='12' md='12' lg='6'>
 							<Card>
 								<CardBody>
-									<Row>
+									<Row className='justify-content-center'>
 										{this.state.url ? (
 											<ReactPlayer
 												url={this.state.url}
 												controls
-												playing
 												className='mr-3 ml-3'
 												ref={this.player}
 											/>
@@ -155,6 +155,7 @@ class Classify extends React.Component {
 												text={this.state.text}
 												changeClicked={this.changeClicked}
 												updateProgress={this.updateProgress}
+												result={this.state.result}
 											/>
 										)}
 									</Row>

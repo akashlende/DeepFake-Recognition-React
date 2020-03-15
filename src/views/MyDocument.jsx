@@ -5,7 +5,28 @@ import tick from "assets/img/tick.png";
 import line from "assets/img/line.png";
 
 class MyDocument extends React.Component {
+	getWeekDay(n) {
+		switch (n) {
+			case 0:
+				return "Sunday";
+			case 1:
+				return "Monday";
+			case 2:
+				return "Tuesday";
+			case 3:
+				return "Wednesday";
+			case 4:
+				return "Thursday";
+			case 5:
+				return "Friday";
+			case 6:
+				return "Saturday";
+			default:
+				return "";
+		}
+	}
 	render() {
+		let d = new Date();
 		return (
 			<Document>
 				<Page>
@@ -43,9 +64,7 @@ class MyDocument extends React.Component {
 							top: 90,
 							width: "90%"
 						}}>
-						<Image
-							src={line}
-							styles={{ position: "absolute", top: 50 }}></Image>
+						<Image src={line} style={{ position: "absolute", top: 50 }}></Image>
 					</View>
 
 					<View style={{ position: "absolute", right: 70, top: 150 }}>
@@ -56,7 +75,8 @@ class MyDocument extends React.Component {
 								left: "40px",
 								fontSize: 14
 							}}>
-							14/03/2020 01:16 HRS
+							{`${this.getWeekDay(d.getDay())}, ${d.getDate()}/${d.getMonth() +
+								1}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`}
 						</Text>
 					</View>
 					<View style={{ position: "absolute", top: 200, left: 110 }}>
@@ -127,9 +147,7 @@ class MyDocument extends React.Component {
 							bottom: 60,
 							width: "90%"
 						}}>
-						<Image
-							src={line}
-							styles={{ position: "absolute", top: 50 }}></Image>
+						<Image src={line} style={{ position: "absolute", top: 50 }}></Image>
 					</View>
 					<View
 						style={{
