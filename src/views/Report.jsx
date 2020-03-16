@@ -44,7 +44,7 @@ class Report extends React.Component {
 								size="10199203"
 								bit="24 "
 								ratio="0.62"
-							   ans="null" />}
+							   ans="true" />}
 								fileName='report.pdf'
 								tag='button'
 								className='btn btn-primary'>

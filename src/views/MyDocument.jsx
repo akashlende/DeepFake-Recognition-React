@@ -2,7 +2,7 @@ import React from "react";
 import { Page, Text, View, Document, Image } from "@react-pdf/renderer";
 import logo from "assets/img/sih-logo.png";
 import tick from "assets/img/tick.png";
-import wrong from "assets/img/wrng.png";
+import wrong from "assets/img/quit.png";
 import line from "assets/img/line.png";
 import { supportsGoWithoutReloadUsingHash } from "history/DOMUtils";
 import { ListGroupItem } from "reactstrap";
