@@ -17,37 +17,37 @@
 */
 import Home from "views/Home.jsx";
 import Classify from "views/Classify.jsx";
-import Report from "views/Report.jsx";
+import History from "views/History.jsx";
 import About from "views/About.jsx";
 
 var routes = [
 	{
 		path: "/home",
 		name: "Home",
-		icon: "tim-icons icon-chart-pie-36",
+		icon: "fa fa-home",
 		component: Home,
-		layout: "/admin"
+		layout: "/admin",
 	},
 	{
 		path: "/classify",
 		name: "Classify",
 		icon: "tim-icons icon-atom",
 		component: Classify,
-		layout: "/admin"
+		layout: "/admin",
 	},
 	{
-		path: "/report",
-		name: "Report",
-		icon: "far fa-file-pdf",
-		component: Report,
-		layout: "/admin"
+		path: "/history",
+		name: "History",
+		icon: "fa fa-history",
+		component: History,
+		layout: "/admin",
 	},
 	{
 		path: "/about",
 		name: "About Us",
 		icon: "fas fa-users",
 		component: About,
-		layout: "/admin"
-	}
+		layout: "/admin",
+	},
 ];
 export default routes;

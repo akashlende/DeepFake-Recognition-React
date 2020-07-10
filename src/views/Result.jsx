@@ -27,7 +27,8 @@ import {
 	Col,
 	CardTitle,
 	CardText,
-	Button
+	Button,
+	NavLink,
 } from "reactstrap";
 import ReactPlayer from "react-player";
 import WaveSurfer from "wavesurfer.js";
@@ -69,24 +70,24 @@ class Result extends React.Component {
 		return buttons;
 	}
 	componentDidMount() {
-		this.wavesurfer = WaveSurfer.create({
-			container: "#waveform",
-			waveColor: "violet",
-			progressColor: "purple",
-			respnsive: true,
-			scrollParent: true,
-			mediaControls: true,
-			backend: "MediaElement",
-			cursorColor: "white"
-		});
-		console.log(soundFile);
-		this.wavesurfer.load(soundFile);
+		// this.wavesurfer = WaveSurfer.create({
+		// 	container: "#waveform",
+		// 	waveColor: "violet",
+		// 	progressColor: "purple",
+		// 	respnsive: true,
+		// 	scrollParent: true,
+		// 	mediaControls: true,
+		// 	backend: "MediaElement",
+		// 	cursorColor: "white",
+		// });
+		// console.log(soundFile);
+		// this.wavesurfer.load(soundFile);
 	}
 
 	render() {
 		return (
 			<div className='content'>
-				<Row>
+				{/* <Row>
 					<Col md='12'>
 						<Row tag='h3' className='ml-2'>
 							Results
@@ -152,23 +153,19 @@ class Result extends React.Component {
 							</Col>
 						</Row>
 					</Col>
-				</Row>
+				</Row> */}
 				<Row className='justify-content-center'>
-					<Col md='6' sm='12' lg='4'>
+					<Col md='6' sm='12' lg='6'>
 						<Card>
 							<CardBody>
-								<CardTitle className='h4'>Result Satisfaction</CardTitle>
+								<CardTitle className='h4'>Video added to queue</CardTitle>
 								<CardText>
-									Are you satisfied with the results? This will help us improve
-									our model.
+									Hi! You'll see your video in your History soon.
 								</CardText>
 								<Row className='justify-content-center'>
-									<Button className='btn-simple btn-success'>
-										Yes <i className='fa fa-thumbs-up' aria-hidden='true'></i>
-									</Button>
-									<Button className='btn-simple btn-danger'>
-										No <i className='fa fa-thumbs-down' aria-hidden='true'></i>
-									</Button>
+									<NavLink className='btn-simple btn-success' href='/classify'>
+										Ok <i className='fa fa-thumbs-up' aria-hidden='true'></i>
+									</NavLink>
 								</Row>
 							</CardBody>
 						</Card>

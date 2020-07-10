@@ -28,10 +28,15 @@ import "assets/css/nucleo-icons.css";
 
 const hist = createBrowserHistory();
 
+if (localStorage.getItem("loggedIn") === null) {
+	localStorage.setItem("loggedIn", "false");
+	localStorage.setItem("user", "");
+}
+
 ReactDOM.render(
 	<Router history={hist}>
 		<Switch>
-			<Route path='/admin' render={props => <AdminLayout {...props} />} />
+			<Route path='/admin' render={(props) => <AdminLayout {...props} />} />
 			<Redirect from='/' to='/admin/home' />
 		</Switch>
 	</Router>,

@@ -42,7 +42,7 @@ class Sidebar extends React.Component {
 		if (navigator.platform.indexOf("Win") > -1) {
 			ps = new PerfectScrollbar(this.refs.sidebar, {
 				suppressScrollX: true,
-				suppressScrollY: false
+				suppressScrollY: false,
 			});
 		}
 	}
@@ -143,7 +143,7 @@ class Sidebar extends React.Component {
 Sidebar.defaultProps = {
 	rtlActive: false,
 	bgColor: "primary",
-	routes: [{}]
+	routes: [{}],
 };
 
 Sidebar.propTypes = {
@@ -162,8 +162,8 @@ Sidebar.propTypes = {
 		// the text of the logo
 		text: PropTypes.node,
 		// the image src of the logo
-		imgSrc: PropTypes.string
-	})
+		imgSrc: PropTypes.string,
+	}),
 };
 
 export default Sidebar;

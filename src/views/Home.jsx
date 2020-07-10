@@ -31,12 +31,12 @@ class Home extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			bigChartData: "data1"
+			bigChartData: "data1",
 		};
 	}
-	setBgChartData = name => {
+	setBgChartData = (name) => {
 		this.setState({
-			bigChartData: name
+			bigChartData: name,
 		});
 	};
 
@@ -58,7 +58,7 @@ class Home extends React.Component {
 												style={{
 													border: "0.3em solid #e14eca",
 													borderRadius: "1em",
-													padding: "0.5em"
+													padding: "0.5em",
 												}}
 											/>
 										</Col>
@@ -68,7 +68,7 @@ class Home extends React.Component {
 											<h3 className='text-justify ml-4 mr-4'>
 												What are we solving?
 											</h3>
-											<p className='text-justify ml-4 mr-4'>
+											<h4 className='text-justify ml-4 mr-4'>
 												Cyber Criminals are using Image processing tools and
 												techniques for producing the variety of crimes,
 												including Image Modification, Fabrication using Cheap &
@@ -77,7 +77,7 @@ class Home extends React.Component {
 												find out and differentiate a fabricated Image/Video with
 												an original one. Technology that can help address the
 												issue: AI/ML techniques can be used.
-											</p>
+											</h4>
 										</Col>
 									</Row>
 								</CardBody>
@@ -87,9 +87,9 @@ class Home extends React.Component {
 							<Card>
 								<CardBody>
 									<Row>
-										<Col sm='12' className='mt-5'>
+										<Col sm='12' className='mt-1'>
 											<h3 className='text-justify ml-4 mr-4'>Our Approach</h3>
-											<p className='text-justify ml-4 mr-4'>
+											<h4 className='text-justify ml-4 mr-4'>
 												Our method is based on the observations that current
 												DeepFake algorithm can only generate images of limited
 												resolutions, which need to be further warped to match
@@ -104,8 +104,8 @@ class Home extends React.Component {
 												detector uses visual representations of audio clips
 												called spectrograms. Which is later classified by
 												another CNN model as real or fake.
-											</p>
-											<p className='text-justify ml-4 mr-4'>
+											</h4>
+											<h4 className='text-justify ml-4 mr-4'>
 												The models are deployed on the flask-based web-app which
 												consists of ReactJS (front end) interface. It is the
 												most efficient and economical solution for implementing
@@ -122,22 +122,7 @@ class Home extends React.Component {
 													<li> Google Cloud Platform and/or Microsoft Azure</li>
 													<li> ReactJS</li>
 												</ol>
-											</p>
-										</Col>
-									</Row>
-									<Row className='justify-content-center'>
-										<Col lg='6' sm='12'>
-											<ReactPlayer
-												url='https://www.youtube.com/watch?v=C8FO0P2a3dA'
-												controls
-												className=''
-												width='parent'
-												style={{
-													border: "0.3em solid #e14eca",
-													borderRadius: "1em",
-													padding: "0.5em"
-												}}
-											/>
+											</h4>
 										</Col>
 									</Row>
 								</CardBody>

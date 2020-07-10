@@ -23,6 +23,8 @@ import Dropzone from "react-dropzone";
 import ReactPlayer from "react-player";
 import Result from "./Result";
 import Axios from "axios";
+import LoginModal from "../components/LoginModal";
+import config from "../config";
 
 class ProgressBar extends React.Component {
 	render() {
@@ -55,12 +57,13 @@ class Classify extends React.Component {
 			url: "",
 			text: "Uploading Video...",
 			clicked: false,
-			result: null
+			result: null,
 		};
 		this.player = React.createRef();
 		this.changeClicked = this.changeClicked.bind(this);
 		this.updateProgress = this.updateProgress.bind(this);
 	}
+
 	updateProgress() {
 		if (this.state.progress < 100) {
 			setTimeout(() => {
@@ -69,7 +72,7 @@ class Classify extends React.Component {
 						this.state.progress >= 60
 							? "Classifying Video..."
 							: "Pre-processing Video...",
-					progress: this.state.progress + 1
+					progress: this.state.progress + 1,
 				});
 			}, Math.random() * 1000);
 		}
@@ -81,17 +84,19 @@ class Classify extends React.Component {
 			reader.readAsDataURL(file);
 			reader.onload = () => {
 				const formData = new FormData();
-				const image = file;
-				formData.append("image", image);
-				Axios.post("/predict", formData, {
+				const video = file;
+				const user = JSON.parse(localStorage.getItem("user"));
+				formData.append("video", video);
+				formData.append("userId", user.id);
+				Axios.post(`${config.serverURL}/classify`, formData, {
 					headers: {
-						"Content-Type": "multipart/form-data"
-					}
-				}).then(res => {
-					console.log(res.data);
+						"Content-Type": "multipart/form-data",
+						Authorization: `Bearer ${user.token}`,
+					},
+				}).then((res) => {
 					this.setState({
-						result: res.data.predictions.label,
-						progress: 100
+						result: res.data.message,
+						progress: 100,
 					});
 					resolve(reader.result);
 				});
@@ -99,8 +104,8 @@ class Classify extends React.Component {
 		});
 	}
 	onDrop(acceptedFiles) {
-		acceptedFiles.forEach(async file => {
-			await this.readFileAsync(file).then(value => {
+		acceptedFiles.forEach(async (file) => {
+			await this.readFileAsync(file).then((value) => {
 				this.setState({ url: value });
 			});
 		});
@@ -114,6 +119,7 @@ class Classify extends React.Component {
 		return (
 			<>
 				<div className='content'>
+					<LoginModal></LoginModal>
 					<Row className='justify-content-center'>
 						<Col sm='12'>
 							<h2>Classify</h2>
@@ -134,7 +140,7 @@ class Classify extends React.Component {
 											<Dropzone
 												multiple={false}
 												onDropAccepted={() => this.setState({ dropped: true })}
-												onDrop={acceptedFiles => {
+												onDrop={(acceptedFiles) => {
 													this.onDrop(acceptedFiles);
 												}}>
 												{({ getRootProps, getInputProps }) => (
