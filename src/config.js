@@ -1,5 +1,5 @@
 const config = {
-	serverURL: "http://d3e09ae02a9e.ngrok.io",
+	serverURL: "http://e99c5c49d3ab.ngrok.io",
 };
 
 export default config;

@@ -23,7 +23,7 @@ import Dropzone from "react-dropzone";
 import ReactPlayer from "react-player";
 import Result from "./Result";
 import Axios from "axios";
-import LoginModal from "../components/LoginModal";
+import LoginModal from "../components/Modals/LoginModal";
 import config from "../config";
 
 class ProgressBar extends React.Component {

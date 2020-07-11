@@ -28,7 +28,6 @@ import {
 	CardTitle,
 	CardText,
 	Button,
-	NavLink,
 } from "reactstrap";
 import ReactPlayer from "react-player";
 import WaveSurfer from "wavesurfer.js";
@@ -163,9 +162,9 @@ class Result extends React.Component {
 									Hi! You'll see your video in your History soon.
 								</CardText>
 								<Row className='justify-content-center'>
-									<NavLink className='btn-simple btn-success' href='/classify'>
+									<a className='btn-simple btn-success' href='/classify'>
 										Ok <i className='fa fa-thumbs-up' aria-hidden='true'></i>
-									</NavLink>
+									</a>
 								</Row>
 							</CardBody>
 						</Card>

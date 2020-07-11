@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 import { AvForm, AvField } from "availity-reactstrap-validation";
 import Axios from "axios";
-import config from "../config";
+import config from "../../config";
 
 export default class LoginModal extends Component {
 	constructor(props) {

@@ -103,7 +103,7 @@ class FixedPlugin extends Component {
 							/>{" "}
 							<span className='color-label'>DARK MODE</span>{" "}
 						</li>
-						<li className='ml-5'>
+						<li className='ml-5' hidden={!this.state.loggedIn}>
 							<Button
 								onClick={this.handleLogout}
 								color='danger'
