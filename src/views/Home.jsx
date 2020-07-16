@@ -145,10 +145,9 @@ class Home extends React.Component {
 						</Col>
 						<Col lg='4' className='mt-auto mb-auto'>
 							<Row className='justify-content-center'>
-								<Link className='btn-simple btn-primary btn' to='classify'>
+								<Link className='btn btn-primary' to='classify'>
 									Start Classifying
 								</Link>
-								{/* <Button className=' '></Button> */}
 							</Row>
 						</Col>
 					</Row>

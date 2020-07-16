@@ -22,12 +22,19 @@ export default class PlayerModal extends Component {
 					</button>
 				</div>
 				<ModalBody>
-					<ReactPlayer
-						url={`${config.serverURL}/get-video/video?videoFile=${this.props.videoFile}`}
-						controls
-						playing={true}
-						width='parent'
-					/>
+					{this.props.isImage ? (
+						<img
+							src={`${config.serverURL}/get-image/image?imageFile=${this.props.file}`}
+							alt=''
+						/>
+					) : (
+						<ReactPlayer
+							url={`${config.serverURL}/get-video/video?videoFile=${this.props.file}`}
+							controls
+							playing={true}
+							width='parent'
+						/>
+					)}
 				</ModalBody>
 			</Modal>
 		);

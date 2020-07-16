@@ -43,6 +43,7 @@ class FixedPlugin extends Component {
 				document.body.classList.remove("white-content");
 				break;
 		}
+		localStorage.setItem("theme", mode);
 	};
 	handleLogout() {
 		localStorage.setItem("loggedIn", "false");
