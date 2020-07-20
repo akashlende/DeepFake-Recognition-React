@@ -114,16 +114,23 @@ class History extends React.Component {
 							<PulseLoader
 								color={"#1d8cf8"}
 								loading={this.state.loadingHistory}></PulseLoader>
-							{this.state.history.map((item, index) => (
-								<HistoryCard
-									isImage={item.isImage}
-									key={item._id}
-									_id={item._id}
-									filePath={item.filePath}
-									fileName={item.fileName}
-									result={item.result}
-									dateTime={item.dateTime}></HistoryCard>
-							))}
+
+							{this.state.history.length > 0 ? (
+								this.state.history.map((item, index) => (
+									<HistoryCard
+										isImage={item.isImage}
+										key={item._id}
+										_id={item._id}
+										filePath={item.filePath}
+										fileName={item.fileName}
+										result={item.result}
+										dateTime={item.dateTime}></HistoryCard>
+								))
+							) : !this.state.loadingHistory ? (
+								<>
+									<h3>Hi there! Nothing to see here. Start Classifying</h3>
+								</>
+							) : null}
 						</Col>
 					</Row>
 				</div>

@@ -72,9 +72,11 @@ class Result extends React.Component {
 					<Col md='6' sm='12' lg='6'>
 						<Card>
 							<CardBody>
-								<CardTitle className='h4'>Video added to queue</CardTitle>
+								<CardTitle className='h4'>
+									{this.props.image ? "Image" : "Video"} added to queue
+								</CardTitle>
 								<CardText>
-									Hi! You'll see your video in your History soon.
+									Hi! You'll see your results in your History soon.
 								</CardText>
 								<Row className='justify-content-center'>
 									<a className='btn btn-success' href='history'>

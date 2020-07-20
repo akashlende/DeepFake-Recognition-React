@@ -204,7 +204,11 @@ class Classify extends React.Component {
 						</Col>
 					</Row>
 					{this.state.url ? (
-						<Result url={this.state.url} result={this.state.result} />
+						<Result
+							url={this.state.url}
+							result={this.state.result}
+							image={this.state.image}
+						/>
 					) : null}
 				</div>
 			</>
