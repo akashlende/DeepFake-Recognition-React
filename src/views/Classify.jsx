@@ -18,13 +18,14 @@
 import React from "react";
 
 // reactstrap components
-import { Card, CardBody, Row, Col, Progress, Button } from "reactstrap";
+import { Card, CardBody, Row, Col, Progress } from "reactstrap";
 import Dropzone from "react-dropzone";
 import ReactPlayer from "react-player";
 import Result from "./Result";
 import Axios from "axios";
 import LoginModal from "../components/Modals/LoginModal";
 import config from "../config";
+import path from "path";
 
 class ProgressBar extends React.Component {
 	render() {
@@ -37,11 +38,7 @@ class ProgressBar extends React.Component {
 							<h4>{this.props.text}</h4>
 							<Progress value={this.props.progress} />
 						</>
-					) : (
-						<Button color='primary' onClick={() => this.props.changeClicked()}>
-							SHOW RESULTS
-						</Button>
-					)}
+					) : null}
 				</Col>
 			</>
 		);
@@ -52,11 +49,11 @@ class Classify extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			image: false,
 			progress: 0,
 			dropped: false,
 			url: "",
-			text: "Uploading Video...",
-			clicked: false,
+			text: "Uploading File...",
 			result: null,
 		};
 		this.player = React.createRef();
@@ -70,8 +67,8 @@ class Classify extends React.Component {
 				this.setState({
 					text:
 						this.state.progress >= 60
-							? "Classifying Video..."
-							: "Pre-processing Video...",
+							? "Classifying File..."
+							: "Pre-processing File...",
 					progress: this.state.progress + 1,
 				});
 			}, Math.random() * 1000);
@@ -84,30 +81,64 @@ class Classify extends React.Component {
 			reader.readAsDataURL(file);
 			reader.onload = () => {
 				const formData = new FormData();
-				const video = file;
-				const user = JSON.parse(localStorage.getItem("user"));
-				formData.append("video", video);
-				formData.append("userId", user.id);
-				Axios.post(`${config.serverURL}/classify`, formData, {
-					headers: {
-						"Content-Type": "multipart/form-data",
-						Authorization: `Bearer ${user.token}`,
-					},
-				}).then((res) => {
+				const ext = path.extname(file.path);
+				if (ext === ".mp4" || ext === ".avi") {
+					const video = file;
+					const user = JSON.parse(localStorage.getItem("user"));
+					formData.append("video", video);
+					formData.append("userId", user.id);
+					Axios.post(`${config.serverURL}/classify`, formData, {
+						headers: {
+							"Content-Type": "multipart/form-data",
+							Authorization: `Bearer ${user.token}`,
+						},
+					})
+						.then((res) => {
+							this.setState({
+								image: false,
+								result: res.data.message,
+								progress: 100,
+							});
+							resolve(reader.result);
+						})
+						.catch((err) => reject(err));
+				} else if (ext === ".jpg" || ext === ".png" || ext === ".jpeg") {
+					const image = file;
+					const user = JSON.parse(localStorage.getItem("user"));
+					formData.append("image", image);
+					formData.append("userId", user.id);
+					Axios.post(`${config.serverURL}/get-image`, formData, {
+						headers: {
+							"Content-Type": "multipart/form-data",
+							Authorization: `Bearer ${user.token}`,
+						},
+					})
+						.then((res) => {
+							this.setState({
+								image: true,
+								result: res.data.message,
+								progress: 100,
+							});
+							resolve(reader.result);
+						})
+						.catch((err) => reject(err));
+				} else {
 					this.setState({
-						result: res.data.message,
+						result: "Invalid File",
 						progress: 100,
 					});
 					resolve(reader.result);
-				});
+				}
 			};
 		});
 	}
 	onDrop(acceptedFiles) {
 		acceptedFiles.forEach(async (file) => {
-			await this.readFileAsync(file).then((value) => {
-				this.setState({ url: value });
-			});
+			await this.readFileAsync(file)
+				.then((value) => {
+					this.setState({ url: value });
+				})
+				.catch((err) => console.log(err));
 		});
 	}
 
@@ -128,7 +159,9 @@ class Classify extends React.Component {
 							<Card>
 								<CardBody>
 									<Row className='justify-content-center'>
-										{this.state.url ? (
+										{this.state.url && this.state.image ? (
+											<img className='mr-3 ml-3' src={this.state.url} alt='' />
+										) : this.state.url ? (
 											<ReactPlayer
 												url={this.state.url}
 												controls
@@ -136,6 +169,7 @@ class Classify extends React.Component {
 												ref={this.player}
 											/>
 										) : null}
+
 										{!this.state.dropped ? (
 											<Dropzone
 												multiple={false}
@@ -169,8 +203,12 @@ class Classify extends React.Component {
 							</Card>
 						</Col>
 					</Row>
-					{this.state.clicked ? (
-						<Result url={this.state.url} result={this.state.result} />
+					{this.state.url ? (
+						<Result
+							url={this.state.url}
+							result={this.state.result}
+							image={this.state.image}
+						/>
 					) : null}
 				</div>
 			</>

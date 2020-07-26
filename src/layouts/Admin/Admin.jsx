@@ -37,9 +37,9 @@ class Admin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            backgroundColor: "blue",
+            backgroundColor:
+                localStorage.getItem("sideBG") == null ? "primary" : localStorage.getItem("sideBG"),
             sidebarOpened: document.documentElement.className.indexOf("nav-open") !== -1,
-            language: config.language,
         };
         this.changeLanguage = this.changeLanguage.bind(this);
     }
@@ -82,6 +82,13 @@ class Admin extends React.Component {
     getRoutes = (routes) => {
         return routes.map((prop, key) => {
             if (prop.layout === "/admin") {
+                const theme = localStorage.getItem("theme");
+                if (theme === "light") {
+                    document.body.classList.add("white-content");
+                } else {
+                    document.body.classList.remove("white-content");
+                }
+
                 return (
                     <Route path={prop.layout + prop.path} component={prop.component} key={key} />
                 );
@@ -91,6 +98,7 @@ class Admin extends React.Component {
         });
     };
     handleBgClick = (color) => {
+        localStorage.setItem("sideBG", color);
         this.setState({ backgroundColor: color });
     };
     getBrandText = (path) => {
@@ -107,7 +115,6 @@ class Admin extends React.Component {
             language: lang,
         });
     }
-
     render() {
         return (
             <>
@@ -141,8 +148,8 @@ class Admin extends React.Component {
                 </div>
                 <FixedPlugin
                     bgColor={this.state.backgroundColor}
-                    changeLanguage={this.changeLanguage}
                     handleBgClick={this.handleBgClick}
+                    changeLanguage={this.changeLanguage}
                 />
             </>
         );

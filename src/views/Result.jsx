@@ -16,12 +16,10 @@
 
 */
 import React from "react";
-import soundFile from "../assets/sample.mp3";
 
 // reactstrap components
 import {
 	Card,
-	CardHeader,
 	CardBody,
 	Row,
 	Col,
@@ -29,8 +27,6 @@ import {
 	CardText,
 	Button,
 } from "reactstrap";
-import ReactPlayer from "react-player";
-import WaveSurfer from "wavesurfer.js";
 
 class Result extends React.Component {
 	timestamps = [60, 120, 180, 240];
@@ -68,101 +64,22 @@ class Result extends React.Component {
 		}
 		return buttons;
 	}
-	componentDidMount() {
-		// this.wavesurfer = WaveSurfer.create({
-		// 	container: "#waveform",
-		// 	waveColor: "violet",
-		// 	progressColor: "purple",
-		// 	respnsive: true,
-		// 	scrollParent: true,
-		// 	mediaControls: true,
-		// 	backend: "MediaElement",
-		// 	cursorColor: "white",
-		// });
-		// console.log(soundFile);
-		// this.wavesurfer.load(soundFile);
-	}
 
 	render() {
 		return (
 			<div className='content'>
-				{/* <Row>
-					<Col md='12'>
-						<Row tag='h3' className='ml-2'>
-							Results
-						</Row>
-						<Row>
-							<Col md='6'>
-								<Card>
-									<CardHeader>
-										<CardTitle tag='h4'>Video</CardTitle>
-									</CardHeader>
-									<CardBody>
-										<CardText tag='center'>
-											<ReactPlayer
-												url={this.props.url}
-												width='parent'
-												className='mb-3'
-												controls
-												ref={this.player}
-												onReady={() => {
-													if (!this.state.seeked) {
-														this.player.current.seekTo(
-															this.state.time,
-															"seconds"
-														);
-														this.setState({ seeked: true });
-													}
-												}}
-											/>
-											<br />
-											<i
-												className={
-													this.props.result
-														? "fa fa-times fa-5x"
-														: "fa fa-check fa-5x"
-												}
-												style={{ color: this.props.result ? "Red" : "Green" }}
-												aria-hidden='true'
-											/>
-											<p className='mt-2 mb-4'>
-												The video is {this.props.result ? "FAKE" : "REAL"}
-											</p>
-										</CardText>
-									</CardBody>
-								</Card>
-							</Col>
-
-							<Col md='6'>
-								<Card>
-									<CardHeader>
-										<CardTitle tag='h4'>Audio</CardTitle>
-									</CardHeader>
-									<CardBody>
-										<div id='waveform'></div>
-										<CardText tag='center'>
-											<i
-												className='fa fa-times fa-5x'
-												style={{ color: "Red" }}
-											/>
-											<p className='mt-2 mb-4'>The audio is fake</p>
-										</CardText>
-									</CardBody>
-								</Card>
-							</Col>
-						</Row>
-					</Col>
-				</Row> */}
 				<Row className='justify-content-center'>
 					<Col md='6' sm='12' lg='6'>
 						<Card>
 							<CardBody>
-								<CardTitle className='h4'>Video added to queue</CardTitle>
+								<CardTitle className='h4'>
+									{this.props.image ? "Image" : "Video"} added to queue
+								</CardTitle>
 								<CardText>
-									Hi! You'll see your video in your History soon.
+									Hi! You'll see your results in your History soon.
 								</CardText>
 								<Row className='justify-content-center'>
-									<a className='btn-simple btn-success' href='/classify'>
+									<a className='btn btn-success' href='history'>
 										Ok <i className='fa fa-thumbs-up' aria-hidden='true'></i>
 									</a>
 								</Row>
