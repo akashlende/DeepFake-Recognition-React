@@ -1,0 +1,14 @@
+{
+    "en": {
+        "home": {
+            "title1": "What are we solving?",
+            "para1": "Cyber Criminals are using Image processing tools and techniques for producing the variety of crimes, including Image Modification, Fabrication using Cheap & Deep Fake Videos/Image. Desired Solution: The solution should focus on help the Image/Video verifier/examiner find out and differentiate a fabricated Image/Video with an original one. Technology that can help address the issue: AI/ML techniques can be used."
+        }
+    },
+    "hi": {
+        "home": {
+            "title1": "हम क्या हल कर रहे हैं?",
+            "para1": "साइबर अपराधी इमेज प्रोसेसिंग टूल और का उपयोग कर रहे हैं अपराधों की विविधता के उत्पादन के लिए तकनीक, छवि संशोधन सहित, सस्ते और सस्ते का उपयोग कर निर्माण दीप नकली वीडियो / छवि। वांछित समाधान: समाधान छवि / वीडियो सत्यापनकर्ता / परीक्षक की मदद पर ध्यान देना चाहिए पता लगाएँ और एक मनगढ़ंत छवि / वीडियो के साथ अंतर करें एक मूल एक। प्रौद्योगिकी जो पते में मदद कर सकती है समस्या: AI / ML तकनीकों का उपयोग किया जा सकता है।"
+        }
+    }
+}
