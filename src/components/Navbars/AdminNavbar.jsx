@@ -21,8 +21,11 @@ import classNames from "classnames";
 
 // reactstrap components
 import { NavbarBrand, Navbar, Nav, Container } from "reactstrap";
+import config from "../../config";//1
+import content from "../../content.json";//2
 
 class AdminNavbar extends React.Component {
+	lang;
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -30,8 +33,18 @@ class AdminNavbar extends React.Component {
 			modalSearch: false,
 			color: "navbar-transparent",
 			loggedIn: localStorage.getItem("loggedIn") === "true",
+			lang : config.language,
 		};
 	}
+
+	componentDidUpdate() {//4
+		if (this.state.lang != config.language) {
+			this.setState({
+				lang: config.language,
+			});
+		}
+	
+  }
 	componentDidMount() {
 		window.addEventListener("resize", this.updateColor);
 	}
@@ -93,7 +106,7 @@ class AdminNavbar extends React.Component {
 									<span className='navbar-toggler-bar bar3' />
 								</button>
 							</div>
-							<NavbarBrand href='/'>DeepFake Recognition{username}</NavbarBrand>
+							<NavbarBrand href='/'>{content[this.state.lang].adminNavbar.title39}{username}</NavbarBrand>
 						</div>
 						<button
 							aria-expanded={false}
@@ -123,7 +136,7 @@ class AdminNavbar extends React.Component {
 										position: "relative",
 										top: "3px",
 									}}>
-									SMART INDIA HACKATHON 2020
+									{content[this.state.lang].adminNavbar.title40}
 								</p>
 							</a>
 						</Nav>

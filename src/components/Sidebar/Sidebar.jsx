@@ -26,13 +26,19 @@ import PerfectScrollbar from "perfect-scrollbar";
 
 // reactstrap components
 import { Nav } from "reactstrap";
+import config from "../../config";
+import content from "../../content.json";
 
 var ps;
 
 class Sidebar extends React.Component {
+	lang;
 	constructor(props) {
 		super(props);
 		this.activeRoute.bind(this);
+		this.state = {
+			lang: config.language
+		}
 	}
 	// verifies if routeName is the one active (in browser input)
 	activeRoute(routeName) {
@@ -46,6 +52,14 @@ class Sidebar extends React.Component {
 			});
 		}
 	}
+	
+    componentDidUpdate() {//4
+        if (this.state.lang != config.language)
+            this.setState({
+                lang: config.language,
+            });
+    }
+
 	componentWillUnmount() {
 		if (navigator.platform.indexOf("Win") > -1) {
 			ps.destroy();
@@ -112,6 +126,16 @@ class Sidebar extends React.Component {
 					) : null}
 					<Nav>
 						{routes.map((prop, key) => {
+							console.log(prop.name);
+
+							if(prop.path === '/home')
+								prop.name = content[config.language].routes.title41;
+							else if(prop.path === '/classify')
+								prop.name = content[config.language].routes.title42;
+							else if(prop.path === '/history')
+								prop.name = content[config.language].routes.title43;
+							else if(prop.path === '/about')
+								prop.name = content[config.language].routes.title44;
 							if (prop.redirect) return null;
 							return (
 								<li

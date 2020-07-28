@@ -28,13 +28,23 @@ import {
 import MyDocument from "./MyDocument";
 
 import ReactPDF from "@react-pdf/renderer";
+import config from "../config";//1
+import content from "../content.json";//2
 
 class Map extends React.Component {
   state = {
     numPages: null,
-    pageNumber: 1
-    
+    pageNumber: 1,
+    lang: config.language
   };
+  lang;//3
+
+  componentDidUpdate() {//4
+    if (this.state.lang != config.language)
+        this.setState({
+            lang: config.language,
+        });
+  }
 
   onDocumentLoadSuccess = ({ numPages }) => {
     this.setState({ numPages });
@@ -66,7 +76,7 @@ class Map extends React.Component {
                       className="btn btn-primary"
                   >
                    
-                    Download Report
+                   {content[this.state.lang].home.title1}
                   </PDFDownloadLink>
                 </CardBody>
               </Card>

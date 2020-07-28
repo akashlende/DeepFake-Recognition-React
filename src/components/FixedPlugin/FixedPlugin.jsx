@@ -16,6 +16,8 @@
 
 */
 import React, { Component } from "react";
+
+
 import {
     Button,
     Dropdown,
@@ -25,19 +27,31 @@ import {
     UncontrolledDropdown,
 } from "reactstrap";
 import config from "../../config";
-import context from "../../content.json";
+import content from "../../content.json";
 
 class FixedPlugin extends Component {
+    lang;//3
     constructor(props) {
         super(props);
         this.state = {
             classes: "dropdown show-dropdown",
             loggedIn: localStorage.getItem("loggedIn") === "true",
             isLangDropdownOpen: false,
+            lang : config.language,
         };
         this.handleLogout = this.handleLogout.bind(this);
         this.toggleLangDropdown = this.toggleLangDropdown.bind(this);
     }
+
+    componentDidUpdate() {//4
+		if (this.state.lang != config.language) {
+			this.setState({
+				lang: config.language,
+			});
+		}
+	
+    }
+    
     handleClick = () => {
         if (this.state.classes === "dropdown show-dropdown") {
             this.setState({ classes: "dropdown show-dropdown show" });
@@ -84,7 +98,7 @@ class FixedPlugin extends Component {
                         <i className="fa fa-cog fa-2x" />
                     </div>
                     <ul className="dropdown-menu show">
-                        <li className="header-title">SIDEBAR BACKGROUND</li>
+                        <li className="header-title">{content[this.state.lang].fixedplugin.title20}</li>
                         <li className="adjustments-line">
                             <div className="badge-colors text-center">
                                 <span
@@ -111,7 +125,7 @@ class FixedPlugin extends Component {
                                 />{" "}
                             </div>
                         </li>
-                        <li className="header-title">Language</li>
+                        <li className="header-title">{content[this.state.lang].fixedplugin.title21}</li>
                         <li className="adjustments-line text-center color-change">
                             <UncontrolledDropdown
                                 toggle={(e) => {
@@ -125,7 +139,7 @@ class FixedPlugin extends Component {
                                     size="sm"
                                     style={{ fontWeight: 300 }}
                                 >
-                                    Select your language
+                                    {content[this.state.lang].fixedplugin.title22}
                                 </DropdownToggle>
                                 <DropdownMenu
                                     hidden={!this.state.isLangDropdownOpen}
@@ -138,7 +152,7 @@ class FixedPlugin extends Component {
                                         }}
                                         className="text-white"
                                     >
-                                        English
+                                        {content[this.state.lang].fixedplugin.title23}
                                     </DropdownItem>
                                     <DropdownItem
                                         onClick={() => {
@@ -147,14 +161,14 @@ class FixedPlugin extends Component {
                                         }}
                                         className="text-white"
                                     >
-                                        Hindi
+                                        {content[this.state.lang].fixedplugin.title24}
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </li>
-                        <li className="header-title">Theme</li>
+                        <li className="header-title">{content[this.state.lang].fixedplugin.title25}</li>
                         <li className="adjustments-line text-center color-change">
-                            <span className="color-label">LIGHT MODE</span>{" "}
+                            <span className="color-label">{content[this.state.lang].fixedplugin.title26}</span>{" "}
                             <span
                                 className="badge light-badge mr-2"
                                 onClick={() => this.activateMode("light")}
@@ -163,17 +177,17 @@ class FixedPlugin extends Component {
                                 className="badge dark-badge ml-2"
                                 onClick={() => this.activateMode("dark")}
                             />{" "}
-                            <span className="color-label">DARK MODE</span>{" "}
+                            <span className="color-label">{content[this.state.lang].fixedplugin.title27}</span>{" "}
                         </li>
                         <li className="ml-5" hidden={!this.state.loggedIn}>
                             <Button onClick={this.handleLogout} color="danger" className="ml-3">
                                 Logout
                             </Button>
                         </li>
-                        <li className="header-title">Like our solution?</li>
+                        <li className="header-title">{content[this.state.lang].fixedplugin.title28}</li>
                         <li className="button-container">
                             <Button href="" className="btn-round" block color="info">
-                                Read Documentation
+                            {content[this.state.lang].fixedplugin.title29}
                             </Button>
                         </li>
                     </ul>

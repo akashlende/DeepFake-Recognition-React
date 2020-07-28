@@ -1,5 +1,5 @@
 const config = {
-    serverURL: "https://bd5861988ea6.ngrok.io",
+    serverURL: "https://777c98a5d0d5.ngrok.io",
     language: "hi",
 };
 

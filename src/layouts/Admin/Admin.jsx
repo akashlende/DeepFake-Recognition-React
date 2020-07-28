@@ -30,6 +30,7 @@ import routes from "routes.js";
 
 import logo from "assets/img/react-logo.png";
 import config from "../../config";
+import content from "../../content.json"
 
 var ps;
 
@@ -40,6 +41,7 @@ class Admin extends React.Component {
             backgroundColor:
                 localStorage.getItem("sideBG") == null ? "primary" : localStorage.getItem("sideBG"),
             sidebarOpened: document.documentElement.className.indexOf("nav-open") !== -1,
+            lang: config.language
         };
         this.changeLanguage = this.changeLanguage.bind(this);
     }
@@ -52,6 +54,7 @@ class Admin extends React.Component {
             for (let i = 0; i < tables.length; i++) {
                 ps = new PerfectScrollbar(tables[i]);
             }
+
         }
     }
     componentWillUnmount() {
@@ -72,7 +75,12 @@ class Admin extends React.Component {
             document.documentElement.scrollTop = 0;
             document.scrollingElement.scrollTop = 0;
             this.refs.mainPanel.scrollTop = 0;
+
         }
+        if (this.state.lang != config.language)
+            this.setState({
+                lang: config.language,
+            });
     }
     // this function opens and closes the sidebar on small devices
     toggleSidebar = () => {
@@ -125,7 +133,7 @@ class Admin extends React.Component {
                         bgColor={this.state.backgroundColor}
                         logo={{
                             outterLink: "https://www.dscmescoe.com/",
-                            text: "The Sentinels",
+                            text: content[this.state.lang].admin.title45,
                             imgSrc: logo,
                         }}
                         toggleSidebar={this.toggleSidebar}

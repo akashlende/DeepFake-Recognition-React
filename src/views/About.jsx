@@ -17,11 +17,31 @@
 
 */
 import React from "react";
+import config from "../config";//1
+import content from "../content.json";//2
 
 // reactstrap components
 import { Button, Card, CardBody, CardFooter, Row, Col } from "reactstrap";
 
 class About extends React.Component {
+
+	lang;//3
+	
+	constructor(props) {
+		super(props);
+		this.state = {
+			lang : config.language,
+		};
+	}
+	
+	componentDidUpdate() {//4
+		if (this.state.lang != config.language) {
+			this.setState({
+				lang: config.language,
+			});
+		}
+	
+    }
 	render() {
 		return (
 			<>
@@ -36,8 +56,8 @@ class About extends React.Component {
 											src={require("assets/img/sakshi.jpeg")}
 											className='avatar'
 										/>
-										<h5 className='title'>Sakshi Doshi</h5>
-										<p className='description'>TEAM-LEAD</p>
+										<h5 className='title'>{content[this.state.lang].about.title6}</h5>
+										<p className='description'>{content[this.state.lang].about.title7}</p>
 									</div>
 								</CardBody>
 								<CardFooter>
@@ -71,8 +91,8 @@ class About extends React.Component {
 											src={require("assets/img/parag.jpeg")}
 											className='avatar'
 										/>
-										<h5 className='title'>Parag Ghorpade</h5>
-										<p className='description'>MACHINE-LEARNING</p>
+										<h5 className='title'>{content[this.state.lang].about.title8}</h5>
+										<p className='description'>{content[this.state.lang].about.title9}</p>
 									</div>
 								</CardBody>
 								<CardFooter>
@@ -104,8 +124,8 @@ class About extends React.Component {
 											src={require("assets/img/akash.jpeg")}
 											className='avatar'
 										/>
-										<h5 className='title'>Akash Lende</h5>
-										<p className='description'>FRONT-END</p>
+										<h5 className='title'>{content[this.state.lang].about.title10}</h5>
+										<p className='description'>{content[this.state.lang].about.title11}</p>
 									</div>
 								</CardBody>
 								<CardFooter>
@@ -137,8 +157,8 @@ class About extends React.Component {
 											src={require("assets/img/richa.jpg")}
 											className='avatar'
 										/>
-										<h5 className='title'>Richa Maurya</h5>
-										<p className='description'>FRONT-END</p>
+										<h5 className='title'>{content[this.state.lang].about.title12}</h5>
+										<p className='description'>{content[this.state.lang].about.title13}</p>
 									</div>
 								</CardBody>
 								<CardFooter>
@@ -170,8 +190,8 @@ class About extends React.Component {
 											src={require("assets/img/varun.jpeg")}
 											className='avatar'
 										/>
-										<h5 className='title'>Varun Irani</h5>
-										<p className='description'>FRONT-END</p>
+										<h5 className='title'>{content[this.state.lang].about.title14}</h5>
+										<p className='description'>{content[this.state.lang].about.title15}</p>
 									</div>
 								</CardBody>
 								<CardFooter>
@@ -201,8 +221,8 @@ class About extends React.Component {
 											src={require("assets/img/mane.jpeg")}
 											className='avatar'
 										/>
-										<h5 className='title'>Hrishikesh Mane</h5>
-										<p className='description'>BACK-END</p>
+										<h5 className='title'>{content[this.state.lang].about.title16}</h5>
+										<p className='description'>{content[this.state.lang].about.title17}</p>
 									</div>
 								</CardBody>
 								<CardFooter>

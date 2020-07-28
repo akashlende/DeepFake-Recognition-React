@@ -10,14 +10,17 @@ import {
 } from "reactstrap";
 import { AvForm, AvField } from "availity-reactstrap-validation";
 import Axios from "axios";
-import config from "../../config";
+import config from "../../config";//1
+import content from "../../content.json";//2
 
 export default class LoginModal extends Component {
+	lang;
 	constructor(props) {
 		super(props);
 		this.state = {
 			loggedIn: localStorage.getItem("loggedIn") === "true",
 			isLogin: true,
+			lang : config.language,
 		};
 		this.handleLogin = this.handleLogin.bind(this);
 		this.handleSignup = this.handleSignup.bind(this);
@@ -25,6 +28,15 @@ export default class LoginModal extends Component {
 		this.changeForm = this.changeForm.bind(this);
 	}
 
+	componentDidUpdate() {//4
+		if (this.state.lang != config.language) {
+			this.setState({
+				lang: config.language,
+			});
+		}
+	
+	  }
+	  
 	handleLogin(e) {
 		e.preventDefault();
 		const username = this.username.value;
@@ -84,8 +96,8 @@ export default class LoginModal extends Component {
 				<div className='modal-header'>
 					<h4 className='modal-title' id='loginModal'>
 						{this.state.isLogin
-							? "Hello there! It looks like you're not logged in"
-							: "Hello there! Please do register below"}
+							? content[this.state.lang].loginmodal.title46
+							: content[this.state.lang].loginmodal.title47}
 					</h4>
 					<button
 						type='button'
@@ -102,61 +114,61 @@ export default class LoginModal extends Component {
 						}>
 						<FormGroup hidden={this.state.isLogin}>
 							<Label for='fullName' style={{ color: "black" }} className='h4'>
-								Full Name
+							{content[this.state.lang].loginmodal.title33}
 							</Label>
 							<AvField
 								innerRef={(node) => (this.fullName = node)}
 								type='text'
 								name='fullName'
 								id='fullName'
-								errorMessage='Full Name is required'
+								errorMessage={content[this.state.lang].loginmodal.title48}
 								bsSize='lg'
-								placeholder='Enter full name'
+								placeholder={content[this.state.lang].loginmodal.title49}
 								required={!this.state.isLogin}
 								style={{ color: "black" }}
 							/>
 							<FormText color='muted'>
-								We'll never share your username with anyone else.
+								{content[this.state.lang].loginmodal.title34}
 							</FormText>
 						</FormGroup>
 						<FormGroup hidden={this.state.isLogin}>
 							<Label for='email' style={{ color: "black" }} className='h4'>
-								Email
+							{content[this.state.lang].loginmodal.title35}
 							</Label>
 							<AvField
 								innerRef={(node) => (this.email = node)}
 								type='email'
 								name='email'
 								id='email'
-								errorMessage='Email is required'
+								errorMessage={content[this.state.lang].loginmodal.title50}
 								bsSize='lg'
-								placeholder='Enter email'
+								placeholder={content[this.state.lang].loginmodal.title51}
 								required={!this.state.isLogin}
 								style={{ color: "black" }}
 							/>
 						</FormGroup>
 						<FormGroup>
 							<Label for='username' style={{ color: "black" }} className='h4'>
-								Username
+							{content[this.state.lang].loginmodal.title36}
 							</Label>
 							<AvField
 								innerRef={(node) => (this.username = node)}
 								type='text'
 								name='username'
 								id='username'
-								errorMessage='Username is required'
+								errorMessage={content[this.state.lang].loginmodal.title52}
 								bsSize='lg'
-								placeholder='Enter username'
+								placeholder={content[this.state.lang].loginmodal.title53}
 								required
 								style={{ color: "black" }}
 							/>
 							<FormText color='muted'>
-								We'll never share your username with anyone else.
+							{content[this.state.lang].loginmodal.title34}
 							</FormText>
 						</FormGroup>
 						<FormGroup className='mb-4'>
 							<Label for='password' className='h4' style={{ color: "black" }}>
-								Password
+							{content[this.state.lang].loginmodal.title37}
 							</Label>
 							<AvField
 								innerRef={(node) => (this.password = node)}
@@ -172,11 +184,11 @@ export default class LoginModal extends Component {
 								id='password'
 								errorMessage={
 									this.state.isLogin
-										? "Password is required"
-										: "Password must have, at least 1 Uppercase Letter, at least 1 Lowercase Letter, at least 1 Number, at least one special symbol, 8 characters or more"
+										? content[this.state.lang].loginmodal.title54
+										: content[this.state.lang].loginmodal.title56
 								}
 								bsSize='lg'
-								placeholder='Enter password'
+								placeholder={content[this.state.lang].loginmodal.title55}
 								required
 								autoComplete='off'
 								style={{ color: "black" }}
@@ -184,19 +196,20 @@ export default class LoginModal extends Component {
 						</FormGroup>
 						<Row className='justify-content-center'>
 							<Button color='primary' type='submit'>
-								Submit
+							{content[this.state.lang].loginmodal.title38}
 							</Button>
 						</Row>
 						<Row className='justify-content-center mt-3'>
 							<h5 style={{ color: "black" }}>
 								{this.state.isLogin
-									? "Don't have an account?"
-									: "Already have an account?"}
+									? content[this.state.lang].loginmodal.title57
+									: content[this.state.lang].loginmodal.title58
+								}
 							</h5>
 						</Row>
 						<Row className='justify-content-center'>
 							<Button color='info' onClick={this.changeForm}>
-								{this.state.isLogin ? "Signup" : "Login"}
+								{this.state.isLogin ? content[this.state.lang].loginmodal.title59 : content[this.state.lang].loginmodal.title60	}
 							</Button>
 						</Row>
 					</AvForm>
