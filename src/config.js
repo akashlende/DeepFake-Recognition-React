@@ -1,5 +1,5 @@
 const config = {
-    serverURL: "http://deepfake.eastus.cloudapp.azure.com:3000",
+    serverURL: "http://deepfake.westeurope.cloudapp.azure.com:3000",
     language: "hi",
 };
 
