@@ -26,8 +26,8 @@ import Axios from "axios";
 import LoginModal from "../components/Modals/LoginModal";
 
 import path from "path";
-import config from "../config";//1
-import content from "../content.json";//2
+import config from "../config"; //1
+import content from "../content.json"; //2
 
 class ProgressBar extends React.Component {
 	render() {
@@ -58,19 +58,20 @@ class Classify extends React.Component {
 			url: "",
 			text: "Uploading File...",
 			result: null,
-			lang: config.language,//3
+			lang: config.language, //3
 		};
 		this.player = React.createRef();
 		this.changeClicked = this.changeClicked.bind(this);
 		this.updateProgress = this.updateProgress.bind(this);
 	}
 
-	componentDidUpdate() {//4
-        if (this.state.lang != config.language)
-            this.setState({
-                lang: config.language,
-            });
-    }
+	componentDidUpdate() {
+		//4
+		if (this.state.lang !== config.language)
+			this.setState({
+				lang: config.language,
+			});
+	}
 
 	updateProgress() {
 		if (this.state.progress < 100) {
@@ -193,7 +194,7 @@ class Classify extends React.Component {
 														<Col sm='12' className='mt-5 mb-5'>
 															<input {...getInputProps()} />
 															<h4 className='text-center'>
-															{content[this.state.lang].classify.title6}
+																{content[this.state.lang].classify.title6}
 															</h4>
 														</Col>
 													</div>

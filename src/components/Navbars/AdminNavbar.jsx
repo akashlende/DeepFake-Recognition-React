@@ -21,8 +21,8 @@ import classNames from "classnames";
 
 // reactstrap components
 import { NavbarBrand, Navbar, Nav, Container } from "reactstrap";
-import config from "../../config";//1
-import content from "../../content.json";//2
+import config from "../../config"; //1
+import content from "../../content.json"; //2
 
 class AdminNavbar extends React.Component {
 	lang;
@@ -33,18 +33,18 @@ class AdminNavbar extends React.Component {
 			modalSearch: false,
 			color: "navbar-transparent",
 			loggedIn: localStorage.getItem("loggedIn") === "true",
-			lang : config.language,
+			lang: config.language,
 		};
 	}
 
-	componentDidUpdate() {//4
-		if (this.state.lang != config.language) {
+	componentDidUpdate() {
+		//4
+		if (this.state.lang !== config.language) {
 			this.setState({
 				lang: config.language,
 			});
 		}
-	
-  }
+	}
 	componentDidMount() {
 		window.addEventListener("resize", this.updateColor);
 	}
@@ -106,7 +106,10 @@ class AdminNavbar extends React.Component {
 									<span className='navbar-toggler-bar bar3' />
 								</button>
 							</div>
-							<NavbarBrand href='/'>{content[this.state.lang].adminNavbar.title39}{username}</NavbarBrand>
+							<NavbarBrand href='/'>
+								{content[this.state.lang].adminNavbar.title39}
+								{username}
+							</NavbarBrand>
 						</div>
 						<button
 							aria-expanded={false}

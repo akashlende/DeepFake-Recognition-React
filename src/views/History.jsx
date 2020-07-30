@@ -22,8 +22,8 @@ import { Row, Col } from "reactstrap";
 import Axios from "axios";
 import LoginModal from "../components/Modals/LoginModal";
 import HistoryCard from "../components/Cards/HistoryCard";
-import config from "../config";//1
-import content from "../content.json";//2
+import config from "../config"; //1
+import content from "../content.json"; //2
 
 import { PulseLoader } from "react-spinners";
 
@@ -39,13 +39,14 @@ class History extends React.Component {
 		};
 	}
 
-	componentDidUpdate() {//4
-        if (this.state.lang != config.language)
-            this.setState({
-                lang: config.language,
-            });
+	componentDidUpdate() {
+		//4
+		if (this.state.lang !== config.language)
+			this.setState({
+				lang: config.language,
+			});
 	}
-	
+
 	getHistory() {
 		const userString = localStorage.getItem("user");
 		if (userString !== "") {

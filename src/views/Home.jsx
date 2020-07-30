@@ -26,127 +26,124 @@ import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 // core components
 import chartExample2 from "variables/charts.jsx";
 import ReactPlayer from "react-player";
-import config from "../config";//1
-import content from "../content.json";//2
+import config from "../config"; //1
+import content from "../content.json"; //2
 
 class Home extends React.Component {
-    lang;
-    constructor(props) {
-        super(props);
-        this.state = {
-            bigChartData: "data1",
-            lang: config.language,//3
-        };
-    }
-    setBgChartData = (name) => {
-        this.setState({
-            bigChartData: name,
-        });
-    };
+	lang;
+	constructor(props) {
+		super(props);
+		this.state = {
+			bigChartData: "data1",
+			lang: config.language, //3
+		};
+	}
+	setBgChartData = (name) => {
+		this.setState({
+			bigChartData: name,
+		});
+	};
 
-    componentDidUpdate() {//4
-        if (this.state.lang != config.language)
-            this.setState({
-                lang: config.language,
-            });
-    }
+	componentDidUpdate() {
+		//4
+		if (this.state.lang !== config.language)
+			this.setState({
+				lang: config.language,
+			});
+	}
 
-    render() {
-        return (
-            <>
-                <div className="content">
-                    <Row>
-                        <Col sm="12">
-                            <Card>
-                                <CardBody>
-                                    <Row className="justify-content-center">
-                                        <Col lg="6" sm="12">
-                                            <ReactPlayer
-                                                url="https://www.youtube.com/watch?v=C8FO0P2a3dA"
-                                                controls
-                                                className="mt-4"
-                                                width="parent"
-                                                style={{
-                                                    border: "0.3em solid #e14eca",
-                                                    borderRadius: "1em",
-                                                    padding: "0.5em",
-                                                }}
-                                            />
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col sm="12" className="mt-3">
-                                            <h3 className="text-justify ml-4 mr-4">
-                                                {content[this.state.lang].home.title1}
-                                            </h3>
-                                            <h4 className="text-justify ml-4 mr-4">
-                                                {content[this.state.lang].home.para1}
-                                            </h4>
-                                        </Col>
-                                    </Row>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col sm="12">
-                            <Card>
-                                <CardBody>
-                                    <Row>
-                                        <Col sm="12" className="mt-1">
-                                            <h3 className="text-justify ml-4 mr-4">{content[this.state.lang].home.title2}</h3>
-                                            <h4 className="text-justify ml-4 mr-4">
-                                                {content[this.state.lang].home.para2}
-                                            </h4>
-                                            <h4 className="text-justify ml-4 mr-4">
-                                                {content[this.state.lang].home.para3}
-                                                <br />
-                                                <br />
-                                                {content[this.state.lang].home.title3}
-                                                <ol>
-                                                    <li>{content[this.state.lang].home.para4}</li>
-                                                    <li>
-                                                        {" "}
-                                                        {content[this.state.lang].home.para5}
-                                                    </li>
-                                                    <li>
-                                                        {" "}
-                                                        {content[this.state.lang].home.para6}
-                                                    </li>
-                                                    <li>{content[this.state.lang].home.para7}</li>
-                                                </ol>
-                                            </h4>
-                                        </Col>
-                                    </Row>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col lg="8">
-                            <Card className="card-chart">
-                                <CardHeader>
-                                    <CardTitle tag="h3">{content[this.state.lang].home.title4}</CardTitle>
-                                </CardHeader>
-                                <CardBody>
-                                    <div className="chart-area">
-                                        <Line
-                                            data={chartExample2.data}
-                                            options={chartExample2.options}
-                                        />
-                                    </div>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                        <Col lg="4" className="mt-auto mb-auto">
-                            <Row className="justify-content-center">
-                                <Link className="btn-simple btn-primary btn" to="classify">
-                                {content[this.state.lang].home.title5} 
-                                </Link>
-                            </Row>
-                        </Col>
-                    </Row>
-                </div>
-                {/* ---------------------------- */}
-            </>
-        );
-    }
+	render() {
+		return (
+			<>
+				<div className='content'>
+					<Row>
+						<Col sm='12'>
+							<Card>
+								<CardBody>
+									<Row className='justify-content-center'>
+										<Col lg='6' sm='12'>
+											<ReactPlayer
+												url='https://www.youtube.com/watch?v=C8FO0P2a3dA'
+												controls
+												className='mt-4'
+												width='parent'
+												style={{
+													border: "0.3em solid #e14eca",
+													borderRadius: "1em",
+													padding: "0.5em",
+												}}
+											/>
+										</Col>
+									</Row>
+									<Row>
+										<Col sm='12' className='mt-3'>
+											<h3 className='text-justify ml-4 mr-4'>
+												{content[this.state.lang].home.title1}
+											</h3>
+											<h4 className='text-justify ml-4 mr-4'>
+												{content[this.state.lang].home.para1}
+											</h4>
+										</Col>
+									</Row>
+								</CardBody>
+							</Card>
+						</Col>
+						<Col sm='12'>
+							<Card>
+								<CardBody>
+									<Row>
+										<Col sm='12' className='mt-1'>
+											<h3 className='text-justify ml-4 mr-4'>
+												{content[this.state.lang].home.title2}
+											</h3>
+											<h4 className='text-justify ml-4 mr-4'>
+												{content[this.state.lang].home.para2}
+											</h4>
+											<h4 className='text-justify ml-4 mr-4'>
+												{content[this.state.lang].home.title3}
+												<ol>
+													<li>{content[this.state.lang].home.para4}</li>
+													<li> {content[this.state.lang].home.para5}</li>
+													<li> {content[this.state.lang].home.para6}</li>
+													<li>{content[this.state.lang].home.para7}</li>
+													<li>{content[this.state.lang].home.para8}</li>
+												</ol>
+											</h4>
+										</Col>
+									</Row>
+								</CardBody>
+							</Card>
+						</Col>
+						<Col lg='8'>
+							<Card className='card-chart'>
+								<CardHeader>
+									<CardTitle tag='h3'>
+										{content[this.state.lang].home.title4}
+									</CardTitle>
+								</CardHeader>
+								<CardBody>
+									<div className='chart-area'>
+										<Line
+											data={chartExample2.data}
+											options={chartExample2.options}
+										/>
+									</div>
+								</CardBody>
+							</Card>
+						</Col>
+						<Col lg='4' className='mt-auto mb-auto'>
+							<Row className='justify-content-center'>
+								<Link className='btn-simple btn-primary btn' to='classify'>
+									{content[this.state.lang].home.title5}
+								</Link>
+							</Row>
+						</Col>
+					</Row>
+				</div>
+				{/* ---------------------------- */}
+			</>
+		);
+	}
 }
 
 export default Home;

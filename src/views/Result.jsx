@@ -16,8 +16,8 @@
 
 */
 import React from "react";
-import config from "../config";//1
-import content from "../content.json";//2
+import config from "../config"; //1
+import content from "../content.json"; //2
 
 // reactstrap components
 import {
@@ -31,27 +31,26 @@ import {
 } from "reactstrap";
 
 class Result extends React.Component {
-	lang;//3
-		
-	
+	lang; //3
+
 	timestamps = [60, 120, 180, 240];
 	constructor(props) {
 		super(props);
 		this.player = React.createRef();
 		this.state = { seeked: false, time: 0, playing: false };
 		this.state = {
-			lang : config.language,
+			lang: config.language,
 		};
 		this.wavesurfer = null;
 	}
 
-	componentDidUpdate() {//4
-		if (this.state.lang != config.language) {
+	componentDidUpdate() {
+		//4
+		if (this.state.lang !== config.language) {
 			this.setState({
 				lang: config.language,
 			});
 		}
-	
 	}
 
 	createButton(seconds, id) {
@@ -92,9 +91,7 @@ class Result extends React.Component {
 								<CardTitle className='h4'>
 									{this.props.image ? "Image" : "Video"} added to queue
 								</CardTitle>
-								<CardText>
-									{content[this.state.lang].result.title19}
-								</CardText>
+								<CardText>{content[this.state.lang].result.title19}</CardText>
 								<Row className='justify-content-center'>
 									<a className='btn btn-success' href='history'>
 										Ok <i className='fa fa-thumbs-up' aria-hidden='true'></i>
