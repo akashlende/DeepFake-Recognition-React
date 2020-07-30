@@ -77,7 +77,7 @@ class FixedPlugin extends Component {
             },
             () => {
                 window.location.reload();
-            },
+            }
         );
     }
 
@@ -142,7 +142,10 @@ class FixedPlugin extends Component {
                                     size="sm"
                                     style={{ fontWeight: 300 }}
                                 >
-                                    {content[this.state.lang].fixedplugin.title22}
+                                    {
+                                        content[this.state.lang].fixedplugin
+                                            .title22
+                                    }
                                 </DropdownToggle>
                                 <DropdownMenu
                                     hidden={!this.state.isLangDropdownOpen}
@@ -156,7 +159,10 @@ class FixedPlugin extends Component {
                                         }}
                                         className="text-white"
                                     >
-                                        {content[this.state.lang].fixedplugin.title23}
+                                        {
+                                            content[this.state.lang].fixedplugin
+                                                .title23
+                                        }
                                     </DropdownItem>
                                     <DropdownItem
                                         onClick={() => {
@@ -165,7 +171,10 @@ class FixedPlugin extends Component {
                                         }}
                                         className="text-white"
                                     >
-                                        {content[this.state.lang].fixedplugin.title24}
+                                        {
+                                            content[this.state.lang].fixedplugin
+                                                .title24
+                                        }
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
@@ -190,15 +199,22 @@ class FixedPlugin extends Component {
                             </span>{" "}
                         </li>
                         <li className="ml-5" hidden={!this.state.loggedIn}>
-                            <Button onClick={this.handleLogout} color="danger" className="ml-3">
-                                Logout
+                            <Button
+                                onClick={this.handleLogout}
+                                color="danger"
+                                className="ml-3"
+                            >
+                                {content[this.state.lang].fixedplugin.title28}
                             </Button>
                         </li>
-                        <li className="header-title">
-                            {content[this.state.lang].fixedplugin.title28}
-                        </li>
+
                         <li className="button-container">
-                            <Button href="" className="btn-round" block color="info">
+                            <Button
+                                href=""
+                                className="btn-round"
+                                block
+                                color="info"
+                            >
                                 {content[this.state.lang].fixedplugin.title29}
                             </Button>
                         </li>

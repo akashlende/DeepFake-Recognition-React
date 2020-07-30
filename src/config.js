@@ -1,5 +1,5 @@
 const config = {
-    serverURL: "http://deepfake.westeurope.cloudapp.azure.com:3000",
+    serverURL: "http://53be5a9f93be.ngrok.io",
     language: "hi",
 };
 

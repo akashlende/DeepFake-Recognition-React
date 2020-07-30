@@ -2,117 +2,118 @@
     "en": {
         "home": {
             "title1": "What are we solving?",
-            "para1": "Cyber Criminals are using Image processing tools and techniques for producing the variety of crimes, including Image Modification, Fabrication using Cheap & Deep Fake Videos/Image. Desired Solution: The solution should focus on help the Image/Video verifier/examiner find out and differentiate a fabricated Image/Video with an original one. Technology that can help address the issue: AI/ML techniques can be used." ,
-            "title2":"Our Approach",
-            "para2" : "Our method is based on the observations that current DeepFake algorithm can only generate images of limited resolutions, which need to be further warped to match the original faces in the source video. Such transforms leave distinctive artifacts in the resulting DeepFake videos. Our method detects such artifacts by comparing the generated face areas and their surrounding regions with a dedicated Convolutional Neural Network (CNN) model. Along with detection of DeepFake images and video, we also propose a solution to detect DeepFake audio to discern between real and fake audio, the detector uses visual representations of audio clips called spectrograms. Which is later classified by another CNN model as real or fake.",
-            "para3" : "The models are deployed on the flask-based web-app which consists of ReactJS (front end) interface. It is the most efficient and economical solution for implementing it. It works on the principle “Train once, use anywhere”. These models can also be extended in the future to be implemented as a API service for third party applications.",
-            "title3" : "Technology Stack",
-            "para4" :"Tensorflow / Keras / OpenCV",
-            "para5" :"Python, Flask (Open Source Web Framework)",
-            "para6" :"Google Cloud Platform and/or Microsoft Azure",
-            "para7" :" ReactJS",
-            "title4":"Performance History",
-            "title5":"Start Classifying"
+            "para1": "Cyber Criminals are using Image processing tools and techniques for producing the variety of crimes, including Image Modification, Fabrication using Cheap & Deep Fake Videos/Image. Desired Solution: The solution should focus on help the Image/Video verifier/examiner find out and differentiate a fabricated Image/Video with an original one. Technology that can help address the issue: AI/ML techniques can be used.",
+            "title2": "Our Approach",
+            "para2": "Our method is based on the observations that current DeepFake algorithm can only generate images of limited resolutions, which need to be further warped to match the original faces in the source video. Such transforms leave distinctive artifacts in the resulting DeepFake videos. Our method detects such artifacts by comparing the generated face areas and their surrounding regions with a dedicated Convolutional Neural Network (CNN) model. Along with detection of DeepFake images and video, we also propose a solution to detect DeepFake audio to discern between real and fake audio, the detector uses visual representations of audio clips called spectrograms. Which is later classified by another CNN model as real or fake.",
+            "para3": "The models are deployed on the flask-based web-app which consists of ReactJS (front end) interface. It is the most efficient and economical solution for implementing it. It works on the principle “Train once, use anywhere”. These models can also be extended in the future to be implemented as a API service for third party applications.",
+            "title3": "Technology Stack",
+            "para4": "Tensorflow / Keras / OpenCV",
+            "para5": "Python, Flask (Open Source Web Framework)",
+            "para6": "Google Cloud Platform and/or Microsoft Azure",
+            "para7": " ReactJS",
+            "title4": "Performance History",
+            "title5": "Start Classifying"
         },
         "classify": {
-            "title6": "DRAG 'N' DROP FILE HERE, OR CLICK TO SELECT FILE"  
+            "title6": "DRAG 'N' DROP FILE HERE, OR CLICK TO SELECT FILE"
         },
         "about": {
             "title6": "Sakshi Doshi",
-            "title7": "TEAM-LEAD",
+            "title7": "Team Leader",
             "title8": "Parag Ghorpade",
-            "title9": "MACHINE-LEARNING",
+            "title9": "ML Developer",
             "title10": "Akash Lende",
-            "title11": "FRONT-END",
+            "title11": "Full Stack Developer",
             "title12": "Richa Maurya",
-            "title13": "FRONT-END",
+            "title13": "Full Stack Developer",
             "title14": "Varun Irani",
-            "title15": "FRONT-END",
+            "title15": "Full Stack Developer",
             "title16": "Hrishikesh Mane",
-            "title17": "BACK-END"
+            "title17": "ML Developer",
+            "quote1": "Be brave enough to be bad at something new",
+            "quote2": "Turning Coffee ☕  into Code 💻",
+            "quote3": "Trust the Process ✌",
+            "quote4": "Pianist 🎹 + Developer ⚛️ = Gullible Genius",
+            "quote5": "Learning . . .  1 epoch at a time ⏳",
+            "quote6": "Struggling for extra cloud credits ☁💸"
         },
         "map": {
             "title18": "Download Report"
         },
         "history": {
             "title18": "Hi there! Nothing to see here. Start Classifying"
-            
         },
-        "result":{
-            "title19" : "Hi! You'll see your results in your History soon."
+        "result": {
+            "title19": "Hi! You'll see your results in your History soon."
         },
-        "fixedplugin":{
-            "title20" : "SIDEBAR BACKGROUND",
-            "title21" : "Language",
-            "title22" : "Select your language",
-            "title23":"English",
-            "title24":"Hindi",
-            "title25":"Theme",
-            "title26":"Light mode",
-            "title27":"Dark mode",
-            "title28":"Logout",
-            "title29":"Like our solution?",
-            "title30":"Read Documentation"
+        "fixedplugin": {
+            "title20": "SIDEBAR BACKGROUND",
+            "title21": "Language",
+            "title22": "Select your language",
+            "title23": "English",
+            "title24": "Hindi",
+            "title25": "Theme",
+            "title26": "Light mode",
+            "title27": "Dark mode",
+            "title28": "Logout",
+            "title29": "Like our solution?",
+            "title30": "Read Documentation"
         },
-        "footer":{
-            "title31":"Smart India Hackathon 2020",
-            "title32":"The Sentinels | MES College of Engineering Pune"
-            
+        "footer": {
+            "title31": "Smart India Hackathon 2020",
+            "title32": "The Sentinels | MES College of Engineering Pune"
         },
-        "loginmodal":{
-            "title33":"Full Name",
-            "title34":"We'll never share your username with anyone else.",
-            "title35":"Email",
-            "title36":"User Name",
-            "title37":"Password",
-            "title38":"Submit",
-            "title46":"Hello there! It looks like you're not logged in",
-            "title47":"Hello there! Please do register below",
-            "title48":"Full Name is required",
-            "title49":"Enter full name",
-            "title50":"Email is required",
-            "title51":"Enter Email",
-            "title52":"Username is required",
-            "title53":"Enter Username",
-            "title54":"Password is required",
-            "title55":"Enter Password",
-            "title56":"Password must have, at least 1 Uppercase Letter, at least 1 Lowercase Letter, at least 1 Number, at least one special symbol, 8 characters or more",
-            "tile57":"Don't have an account?",
-            "title58":"Already have an account?",
-            "title59":"Signup",
-            "title60":"Login"
-            
+        "loginmodal": {
+            "title33": "Full Name",
+            "title34": "We'll never share your username with anyone else.",
+            "title35": "Email",
+            "title36": "User Name",
+            "title37": "Password",
+            "title38": "Submit",
+            "title46": "Hello there! It looks like you're not logged in",
+            "title47": "Hello there! Please do register below",
+            "title48": "Full Name is required",
+            "title49": "Enter full name",
+            "title50": "Email is required",
+            "title51": "Enter Email",
+            "title52": "Username is required",
+            "title53": "Enter Username",
+            "title54": "Password is required",
+            "title55": "Enter Password",
+            "title56": "Password must have, at least 1 Uppercase Letter, at least 1 Lowercase Letter, at least 1 Number, at least one special symbol, 8 characters or more",
+            "tile57": "Don't have an account?",
+            "title58": "Already have an account?",
+            "title59": "Signup",
+            "title60": "Login"
         },
-        "adminNavbar":{
-            "title39":"DeepFake Recognition",
-            "title40":"Smart India Hackathon 2020"
-            
+        "adminNavbar": {
+            "title39": "DeepFake Recognition",
+            "title40": "Smart India Hackathon 2020"
         },
-        "routes":{
-            "title41":"Home",
-            "title42":"Classify",
-            "title43":"History",
-            "title44":"About Us"
-            
+        "routes": {
+            "title41": "Home",
+            "title42": "Classify",
+            "title43": "History",
+            "title44": "About Us"
         },
         "admin": {
-            "title45":"The Sentinels"
+            "title45": "The Sentinels"
         }
     },
     "hi": {
         "home": {
             "title1": "हम क्या हल कर रहे हैं?",
             "para1": "साइबर अपराधी इमेज प्रोसेसिंग टूल और का उपयोग कर रहे हैं अपराधों की विविधता के उत्पादन के लिए तकनीक, छवि संशोधन सहित, सस्ते और सस्ते का उपयोग कर निर्माण दीप नकली वीडियो / छवि। वांछित समाधान: समाधान छवि / वीडियो सत्यापनकर्ता / परीक्षक की मदद पर ध्यान देना चाहिए पता लगाएँ और एक मनगढ़ंत छवि / वीडियो के साथ अंतर करें एक मूल एक। प्रौद्योगिकी जो पते में मदद कर सकती है समस्या: AI / ML तकनीकों का उपयोग किया जा सकता है।",
-            "title2":"हमारा दृष्टिकोण",
+            "title2": "हमारा दृष्टिकोण",
             "para2": "हमारी पद्धति उन टिप्पणियों पर आधारित है जो वर्तमान में हैं डीपफेक एल्गोरिदम केवल की छवियां उत्पन्न कर सकता है सीमित संकल्प, जिन्हें आगे बढ़ाने की आवश्यकता है स्रोत वीडियो में मूल चेहरों से मिलान करने के लिए। इस तरह के रूपांतरों में विशिष्ट कलाकृतियों को छोड़ दिया जाता है परिणामस्वरूप डीपफेक वीडियो। हमारी विधि इस तरह का पता लगाती है उत्पन्न चेहरे क्षेत्रों की तुलना करके कलाकृतियों और एक समर्पित के साथ उनके आसपास के क्षेत्र संवादी तंत्रिका नेटवर्क (CNN) मॉडल। साथ में DeepFake छवियों और वीडियो का पता लगाने, हम भी DeepFake ऑडियो का पता लगाने के लिए एक समाधान का प्रस्ताव वास्तविक और नकली ऑडियो, डिटेक्टर के बीच विचार-विमर्श कहा जाता है ऑडियो क्लिप के दृश्य प्रतिनिधित्व का उपयोग करता है spectrograms। जिसे बाद में दूसरे द्वारा वर्गीकृत किया जाता है असली या नकली के रूप में सीएनएन मॉडल।",
-            "para3":"मॉडल फ्लास्क-आधारित वेब-ऐप पर तैनात किए जाते हैं जिसमें ReactJS (फ्रंट एंड) इंटरफेस शामिल है। यह के लिए सबसे कुशल और किफायती समाधान है इसे लागू करना। यह सिद्धांत पर काम करता है “ट्रेन एक बार, कहीं भी उपयोग करें ”। ये मॉडल भी हो सकते हैं भविष्य में एक एपीआई के रूप में लागू किया जाएगा तीसरे पक्ष के अनुप्रयोगों के लिए सेवा।",
-            "title3":"प्रौद्योगिकी ढेर",
-            "para4" :"Tensorflow / Keras / OpenCV",
-            "para5" :"Python, Flask (Open Source Web Framework)",
-            "para6" :"Google Cloud Platform and/or Microsoft Azure",
-            "para7" :" ReactJS",
-            "title4":"प्रदर्शन का इतिहास",
-            "title5":"वर्गीकृत करना शुरू करें"
+            "para3": "मॉडल फ्लास्क-आधारित वेब-ऐप पर तैनात किए जाते हैं जिसमें ReactJS (फ्रंट एंड) इंटरफेस शामिल है। यह के लिए सबसे कुशल और किफायती समाधान है इसे लागू करना। यह सिद्धांत पर काम करता है “ट्रेन एक बार, कहीं भी उपयोग करें ”। ये मॉडल भी हो सकते हैं भविष्य में एक एपीआई के रूप में लागू किया जाएगा तीसरे पक्ष के अनुप्रयोगों के लिए सेवा।",
+            "title3": "प्रौद्योगिकी ढेर",
+            "para4": "Tensorflow / Keras / OpenCV",
+            "para5": "Python, Flask (Open Source Web Framework)",
+            "para6": "Google Cloud Platform and/or Microsoft Azure",
+            "para7": " ReactJS",
+            "title4": "प्रदर्शन का इतिहास",
+            "title5": "वर्गीकृत करना शुरू करें"
         },
         "map": {
             "title18": "रिपोर्ट डाउनलोड करें"
@@ -124,78 +125,80 @@
             "title6": "साक्षी दोषी",
             "title7": "टीम लीडर",
             "title8": "पराग घोरपड़े",
-            "title9": "मशीन लर्निंग",
-            "title10": "आकाश लेंदे",
-            "title11": "फ़्रंट एंड",
-            "title12": "रिचा मौर्य",
-            "title13": "फ़्रंट एंड",
+            "title9": "एमएल डेवलपर",
+            "title10": "आकाश लेंडे",
+            "title11": "फफूल स्टैक डेवलपर",
+            "title12": "ऋचा मौर्य",
+            "title13": "फफूल स्टैक डेवलपर",
             "title14": "वरुण ईरानी",
-            "title15": "फ़्रंट एंड",
+            "title15": "फफूल स्टैक डेवलपर",
             "title16": "हृषिकेश माने",
-            "title17": "बैक एंड"
+            "title17": "एमएल डेवलपर",
+            "quote1": "कुछ नया करने के लिए बहादुर बनो",
+            "quote2": "कॉफ़ी ☕ को कोड 💻 मे बडल राहा",
+            "quote3": "प्रक्रिया पर विश्वास करें ✌",
+            "quote4": " पियानोवादक 🎹 + डेवलपर ⚛️ = भोला जीनियस",
+            "quote5": "एक समय में 1 युग सीख राहा  . . ⏳",
+            "quote6": "अतिरिक्त क्लाउड क्रेडिट के लिए संघर्ष ☁💸"
         },
         "history": {
             "title18": "नमस्ते! यहाँ देखने के लिए कुछ नही है। वर्गीकृत करना शुरू करें?"
-            
         },
-        "result":{
-            "title19" : "नमस्ते! आप जल्द ही अपने इतिहास में अपने परिणाम देखेंगे।"
+        "result": {
+            "title19": "नमस्ते! आप जल्द ही अपने इतिहास में अपने परिणाम देखेंगे।"
         },
-        "fixedplugin":{
-            "title20" : "साइडबार बैकग्राउंड",
-            "title21" : "भाषा",
+        "fixedplugin": {
+            "title20": "साइडबार बैकग्राउंड",
+            "title21": "भाषा",
             "title22": "अपनी भाषा का चयन करें",
             "title23": "अंग्रेज़ी",
             "title24": "हिन्दी",
             "title25": "थीम",
             "title26": "प्रकाश मोड",
-            "title27":"डार्क मोड",
-            "title28":"लॉग आउट",
-            "title29":"हमारा उपाय पसंद आया?",
-            "title30":"प्रलेखन पढ़ें"
+            "title27": "डार्क मोड",
+            "title28": "लॉग आउट",
+            "title29": "हमारा उपाय पसंद आया?",
+            "title30": "प्रलेखन पढ़ें"
         },
-        "footer":{
-            "title31":"स्मार्ट इंडिया हैकाथॉन 2020",
-            "title32":"डी सेनटेनेल्स| एमईएस कॉलेज ऑफ इंजीनियरिंग पुणे"
-            
+        "footer": {
+            "title31": "स्मार्ट इंडिया हैकाथॉन 2020",
+            "title32": "डी सेनटेनेल्स| एमईएस कॉलेज ऑफ इंजीनियरिंग पुणे"
         },
-        "loginmodal":{
-            "title33":"पूरा नाम",
-            "title34":"हम आपके उपयोगकर्ता नाम को कभी भी किसी और के साथ साझा नहीं करेंगे।",
-            "title35":"ईमेल",
-            "title36":"उपयोगकर्ता नाम",
-            "title37":"कुंजिका",
-            "title38":"प्रस्तुत",
-            "title46":"नमस्ते! ऐसा लगता है कि आप लॉग इन नहीं हैं",
-            "title47":"नमस्ते! कृपया नीचे रजिस्टर करें",
-            "title48":"पूरा नाम आवश्यक है",
-            "title49":"पूरा नाम दर्ज करें",
-            "title50":"ईमेल जरुरी है",
-            "title51":"ईमेल दर्ज करें",
-            "title52":"उपयोगकर्ता नाम आवश्यक है",
-            "title53":"उपयोगकर्ता नाम दर्ज करें",
-            "title54":"पासवर्ड की आवश्यकता है",
-            "title55":"पास वर्ड दर्ज करें",
-            "title56":"पासवर्ड में कम से कम 1 अपरकेस लेटर, कम से कम 1 लोअरकेस लेटर, कम से कम 1 नंबर, कम से कम एक विशेष प्रतीक, 8 अक्षर या अधिक होना चाहिए।",
-            "tile57":"खाता नहीं है?",
-            "title58":"क्या आपके पास पहले से एक खाता मौजूद है?",
-            "title59":"साइन अप करें",
-            "title60":"लॉग इन करें"
-            
+        "loginmodal": {
+            "title33": "पूरा नाम",
+            "title34": "हम आपके उपयोगकर्ता नाम को कभी भी किसी और के साथ साझा नहीं करेंगे।",
+            "title35": "ईमेल",
+            "title36": "उपयोगकर्ता नाम",
+            "title37": "कुंजिका",
+            "title38": "प्रस्तुत",
+            "title46": "नमस्ते! ऐसा लगता है कि आप लॉग इन नहीं हैं",
+            "title47": "नमस्ते! कृपया नीचे रजिस्टर करें",
+            "title48": "पूरा नाम आवश्यक है",
+            "title49": "पूरा नाम दर्ज करें",
+            "title50": "ईमेल जरुरी है",
+            "title51": "ईमेल दर्ज करें",
+            "title52": "उपयोगकर्ता नाम आवश्यक है",
+            "title53": "उपयोगकर्ता नाम दर्ज करें",
+            "title54": "पासवर्ड की आवश्यकता है",
+            "title55": "पास वर्ड दर्ज करें",
+            "title56": "पासवर्ड में कम से कम 1 अपरकेस लेटर, कम से कम 1 लोअरकेस लेटर, कम से कम 1 नंबर, कम से कम एक विशेष प्रतीक, 8 अक्षर या अधिक होना चाहिए।",
+            "tile57": "खाता नहीं है?",
+            "title58": "क्या आपके पास पहले से एक खाता मौजूद है?",
+            "title59": "साइन अप करें",
+            "title60": "लॉग इन करें"
         },
-        "adminNavbar":{
-            "title39":"डीपफेक रीकोगनीशन",
-            "title40":"स्मार्ट इंडिया हैकाथॉन 2020"
-            
+        "adminNavbar": {
+            "title39": "डीपफेक रीकोगनीशन",
+            "title40": "स्मार्ट इंडिया हैकाथॉन 2020"
         },
-        "routes":{
-            "title41":"घर",
-            "title42":"वर्गीकृत",
-            "title43":"इतिहास",
-            "title44":"हमारे बारे में"
+        "routes": {
+            "title41": "घर",
+            "title42": "वर्गीकृत",
+            "title43": "इतिहास",
+            "title44": "हमारे बारे में"
         },
         "admin": {
-            "title45":"डी सेनटेनेल्स"
+            "title45": "डी सेनटेनेल्स"
         }
     }
 }
