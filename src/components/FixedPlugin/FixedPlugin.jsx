@@ -171,11 +171,19 @@ class FixedPlugin extends Component {
 									</DropdownItem>
 									<DropdownItem
 										onClick={() => {
-											this.props.changeLanguage("ma");
-											config.language = "ma";
+											this.props.changeLanguage("mr");
+											config.language = "mr";
 										}}
 										className='text-white'>
 										{content[this.state.lang].fixedplugin.title32}
+									</DropdownItem>
+									<DropdownItem
+										onClick={() => {
+											this.props.changeLanguage("te");
+											config.language = "te";
+										}}
+										className='text-white'>
+										{content[this.state.lang].fixedplugin.title33}
 									</DropdownItem>
 								</DropdownMenu>
 							</UncontrolledDropdown>
