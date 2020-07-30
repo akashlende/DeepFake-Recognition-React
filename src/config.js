@@ -1,6 +1,6 @@
 const config = {
-	serverURL: "https://ea7aa5cfd6a4.ngrok.io",
-	language: "te",
+    serverURL: "http://deepfake.westus2.cloudapp.azure.com:3000/",
+    language: "en",
 };
 
 export default config;

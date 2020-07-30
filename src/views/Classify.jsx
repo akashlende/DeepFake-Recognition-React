@@ -30,202 +30,237 @@ import config from "../config"; //1
 import content from "../content.json"; //2
 
 class ProgressBar extends React.Component {
-	render() {
-		if (this.props.dropped) this.props.updateProgress();
-		return (
-			<>
-				<Col sm='12' className='mb-3 mt-3 text-center'>
-					{this.props.result == null && this.props.progress < 100 ? (
-						<>
-							<h4>{this.props.text}</h4>
-							<Progress value={this.props.progress} />
-						</>
-					) : null}
-				</Col>
-			</>
-		);
-	}
+    render() {
+        if (this.props.dropped) this.props.updateProgress();
+        return (
+            <>
+                <Col sm="12" className="mb-3 mt-3 text-center">
+                    {this.props.result == null && this.props.progress < 100 ? (
+                        <>
+                            <h4>{this.props.text}</h4>
+                            <Progress value={this.props.progress} />
+                        </>
+                    ) : null}
+                </Col>
+            </>
+        );
+    }
 }
 
 class Classify extends React.Component {
-	lang;
-	constructor(props) {
-		super(props);
-		this.state = {
-			image: false,
-			progress: 0,
-			dropped: false,
-			url: "",
-			text: "Uploading File...",
-			result: null,
-			lang: config.language, //3
-		};
-		this.player = React.createRef();
-		this.changeClicked = this.changeClicked.bind(this);
-		this.updateProgress = this.updateProgress.bind(this);
-	}
+    lang;
+    constructor(props) {
+        super(props);
+        this.state = {
+            image: false,
+            progress: 0,
+            dropped: false,
+            url: "",
+            text: "Uploading File...",
+            result: null,
+            lang: config.language, //3
+        };
+        this.player = React.createRef();
+        this.changeClicked = this.changeClicked.bind(this);
+        this.updateProgress = this.updateProgress.bind(this);
+    }
 
-	componentDidUpdate() {
-		//4
-		if (this.state.lang !== config.language)
-			this.setState({
-				lang: config.language,
-			});
-	}
+    componentDidUpdate() {
+        //4
+        if (this.state.lang !== config.language)
+            this.setState({
+                lang: config.language,
+            });
+    }
 
-	updateProgress() {
-		if (this.state.progress < 100) {
-			setTimeout(() => {
-				this.setState({
-					text:
-						this.state.progress >= 60
-							? "Classifying File..."
-							: "Pre-processing File...",
-					progress: this.state.progress + 1,
-				});
-			}, Math.random() * 1000);
-		}
-	}
-	readFileAsync(file) {
-		return new Promise((resolve, reject) => {
-			const reader = new FileReader();
-			reader.onerror = reject;
-			reader.readAsDataURL(file);
-			reader.onload = () => {
-				const formData = new FormData();
-				const ext = path.extname(file.path);
-				if (ext === ".mp4" || ext === ".avi") {
-					const video = file;
-					const user = JSON.parse(localStorage.getItem("user"));
-					formData.append("video", video);
-					formData.append("userId", user.id);
-					Axios.post(`${config.serverURL}/classify`, formData, {
-						headers: {
-							"Content-Type": "multipart/form-data",
-							Authorization: `Bearer ${user.token}`,
-						},
-					})
-						.then((res) => {
-							this.setState({
-								image: false,
-								result: res.data.message,
-								progress: 100,
-							});
-							resolve(reader.result);
-						})
-						.catch((err) => reject(err));
-				} else if (ext === ".jpg" || ext === ".png" || ext === ".jpeg") {
-					const image = file;
-					const user = JSON.parse(localStorage.getItem("user"));
-					formData.append("image", image);
-					formData.append("userId", user.id);
-					Axios.post(`${config.serverURL}/get-image`, formData, {
-						headers: {
-							"Content-Type": "multipart/form-data",
-							Authorization: `Bearer ${user.token}`,
-						},
-					})
-						.then((res) => {
-							this.setState({
-								image: true,
-								result: res.data.message,
-								progress: 100,
-							});
-							resolve(reader.result);
-						})
-						.catch((err) => reject(err));
-				} else {
-					this.setState({
-						result: "Invalid File",
-						progress: 100,
-					});
-					resolve(reader.result);
-				}
-			};
-		});
-	}
-	onDrop(acceptedFiles) {
-		acceptedFiles.forEach(async (file) => {
-			await this.readFileAsync(file)
-				.then((value) => {
-					this.setState({ url: value });
-				})
-				.catch((err) => console.log(err));
-		});
-	}
+    updateProgress() {
+        if (this.state.progress < 100) {
+            setTimeout(() => {
+                this.setState({
+                    text:
+                        this.state.progress >= 60
+                            ? "Classifying File..."
+                            : "Pre-processing File...",
+                    progress: this.state.progress + 1,
+                });
+            }, Math.random() * 1000);
+        }
+    }
+    readFileAsync(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                const formData = new FormData();
+                const ext = path.extname(file.path);
+                if (ext === ".mp4" || ext === ".avi") {
+                    const video = file;
+                    const user = JSON.parse(localStorage.getItem("user"));
+                    formData.append("video", video);
+                    formData.append("userId", user.id);
+                    Axios.post(`${config.serverURL}/classify`, formData, {
+                        headers: {
+                            "Content-Type": "multipart/form-data",
+                            Authorization: `Bearer ${user.token}`,
+                        },
+                    })
+                        .then((res) => {
+                            this.setState({
+                                image: false,
+                                result: res.data.message,
+                                progress: 100,
+                            });
+                            resolve(reader.result);
+                        })
+                        .catch((err) => reject(err));
+                } else if (
+                    ext === ".jpg" ||
+                    ext === ".png" ||
+                    ext === ".jpeg"
+                ) {
+                    const image = file;
+                    const user = JSON.parse(localStorage.getItem("user"));
+                    formData.append("image", image);
+                    formData.append("userId", user.id);
+                    Axios.post(`${config.serverURL}/get-image`, formData, {
+                        headers: {
+                            "Content-Type": "multipart/form-data",
+                            Authorization: `Bearer ${user.token}`,
+                        },
+                    })
+                        .then((res) => {
+                            this.setState({
+                                image: true,
+                                result: res.data.message,
+                                progress: 100,
+                            });
+                            resolve(reader.result);
+                        })
+                        .catch((err) => reject(err));
+                } else {
+                    this.setState({
+                        result: "Invalid File",
+                        progress: 100,
+                    });
+                    resolve(reader.result);
+                }
+            };
+        });
+    }
+    onDrop(acceptedFiles) {
+        acceptedFiles.forEach(async (file) => {
+            await this.readFileAsync(file)
+                .then((value) => {
+                    this.setState({ url: value });
+                })
+                .catch((err) => console.log(err));
+        });
+    }
 
-	changeClicked() {
-		this.setState({ clicked: true });
-	}
+    changeClicked() {
+        this.setState({ clicked: true });
+    }
 
-	render() {
-		return (
-			<>
-				<div className='content'>
-					<LoginModal></LoginModal>
-					<Row className='justify-content-center'>
-						<Col sm='12'>
-							<h2>Classify</h2>
-						</Col>
-						<Col sm='12' md='12' lg='6'>
-							<Card>
-								<CardBody>
-									<Row className='justify-content-center'>
-										{this.state.url && this.state.image ? (
-											<img className='mr-3 ml-3' src={this.state.url} alt='' />
-										) : this.state.url ? (
-											<ReactPlayer
-												url={this.state.url}
-												controls
-												className='mr-3 ml-3'
-												ref={this.player}
-											/>
-										) : null}
+    render() {
+        return (
+            <>
+                <div className="content">
+                    <LoginModal></LoginModal>
+                    <Row className="justify-content-center">
+                        <Col sm="12">
+                            <h2>{content[this.state.lang].routes.title42}</h2>
+                        </Col>
+                        <Col sm="12" md="12" lg="6">
+                            <Card>
+                                <CardBody>
+                                    <Row className="justify-content-center">
+                                        {this.state.url && this.state.image ? (
+                                            <img
+                                                className="mr-3 ml-3"
+                                                src={this.state.url}
+                                                alt=""
+                                            />
+                                        ) : this.state.url ? (
+                                            <ReactPlayer
+                                                url={this.state.url}
+                                                controls
+                                                className="mr-3 ml-3"
+                                                ref={this.player}
+                                            />
+                                        ) : null}
 
-										{!this.state.dropped ? (
-											<Dropzone
-												multiple={false}
-												onDropAccepted={() => this.setState({ dropped: true })}
-												onDrop={(acceptedFiles) => {
-													this.onDrop(acceptedFiles);
-												}}>
-												{({ getRootProps, getInputProps }) => (
-													<div {...getRootProps()} className='ml-5 mr-5'>
-														<Col sm='12' className='mt-5 mb-5'>
-															<input {...getInputProps()} />
-															<h4 className='text-center'>
-																{content[this.state.lang].classify.title6}
-															</h4>
-														</Col>
-													</div>
-												)}
-											</Dropzone>
-										) : (
-											<ProgressBar
-												progress={this.state.progress}
-												dropped={this.state.dropped}
-												text={this.state.text}
-												changeClicked={this.changeClicked}
-												updateProgress={this.updateProgress}
-												result={this.state.result}
-											/>
-										)}
-									</Row>
-								</CardBody>
-							</Card>
-						</Col>
-					</Row>
-					{this.state.url ? (
-						<Result
-							url={this.state.url}
-							result={this.state.result}
-							image={this.state.image}
-						/>
-					) : null}
-				</div>
-			</>
-		);
-	}
+                                        {!this.state.dropped ? (
+                                            <Dropzone
+                                                multiple={false}
+                                                onDropAccepted={() =>
+                                                    this.setState({
+                                                        dropped: true,
+                                                    })
+                                                }
+                                                onDrop={(acceptedFiles) => {
+                                                    this.onDrop(acceptedFiles);
+                                                }}
+                                            >
+                                                {({
+                                                    getRootProps,
+                                                    getInputProps,
+                                                }) => (
+                                                    <div
+                                                        {...getRootProps()}
+                                                        className="ml-5 mr-5"
+                                                    >
+                                                        <Col
+                                                            sm="12"
+                                                            className="mt-5 mb-5"
+                                                        >
+                                                            <input
+                                                                {...getInputProps()}
+                                                            />
+                                                            <h4 className="text-center">
+                                                                {
+                                                                    content[
+                                                                        this
+                                                                            .state
+                                                                            .lang
+                                                                    ].classify
+                                                                        .title6
+                                                                }
+                                                            </h4>
+                                                        </Col>
+                                                    </div>
+                                                )}
+                                            </Dropzone>
+                                        ) : (
+                                            <ProgressBar
+                                                progress={this.state.progress}
+                                                dropped={this.state.dropped}
+                                                text={this.state.text}
+                                                changeClicked={
+                                                    this.changeClicked
+                                                }
+                                                updateProgress={
+                                                    this.updateProgress
+                                                }
+                                                result={this.state.result}
+                                            />
+                                        )}
+                                    </Row>
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    </Row>
+                    {this.state.url ? (
+                        <Result
+                            url={this.state.url}
+                            result={this.state.result}
+                            image={this.state.image}
+                        />
+                    ) : null}
+                </div>
+            </>
+        );
+    }
 }
 
 export default Classify;
