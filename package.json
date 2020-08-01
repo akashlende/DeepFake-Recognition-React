@@ -2,7 +2,7 @@
     "name": "deepfake",
     "version": "1.0.0",
     "private": true,
-    "homepage": "https://richa7maurya.github.io/df",
+    "homepage": "https://richa7maurya.github.io/sentinels",
     "dependencies": {
         "@react-pdf/renderer": "^1.6.8",
         "@types/react": "16.9.23",
