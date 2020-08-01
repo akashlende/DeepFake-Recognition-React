@@ -28,7 +28,7 @@ import config from "../../config";
 import content from "../../content.json";
 
 class FixedPlugin extends Component {
-    lang; //3
+    lang;
     constructor(props) {
         super(props);
         this.state = {
@@ -42,7 +42,6 @@ class FixedPlugin extends Component {
     }
 
     componentDidUpdate() {
-        //4
         if (this.state.lang !== config.language) {
             this.setState({
                 lang: config.language,
