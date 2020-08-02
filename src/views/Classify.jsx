@@ -18,7 +18,23 @@
 import React from "react";
 
 // reactstrap components
-import { Card, CardBody, Row, Col, Progress } from "reactstrap";
+import {
+    Card,
+    CardBody,
+    Row,
+    Col,
+    Progress,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
+    FormGroup,
+    Button,
+    Label,
+    Input,
+    FormText,
+    CardHeader,
+} from "reactstrap";
 import Dropzone from "react-dropzone";
 import ReactPlayer from "react-player";
 import Result from "./Result";
@@ -26,8 +42,8 @@ import Axios from "axios";
 import LoginModal from "../components/Modals/LoginModal";
 
 import path from "path";
-import config from "../config"; //1
-import content from "../content.json"; //2
+import config from "../config";
+import content from "../content.json";
 
 class ProgressBar extends React.Component {
     render() {
@@ -58,7 +74,7 @@ class Classify extends React.Component {
             url: "",
             text: "Uploading File...",
             result: null,
-            lang: config.language, //3
+            lang: config.language,
         };
         this.player = React.createRef();
         this.changeClicked = this.changeClicked.bind(this);
@@ -66,7 +82,6 @@ class Classify extends React.Component {
     }
 
     componentDidUpdate() {
-        //4
         if (this.state.lang !== config.language)
             this.setState({
                 lang: config.language,
@@ -171,7 +186,266 @@ class Classify extends React.Component {
                         <Col sm="12">
                             <h2>{content[this.state.lang].routes.title42}</h2>
                         </Col>
-                        <Col sm="12" md="12" lg="6">
+                        <Col sm="12" md="12" lg="12">
+                            <Card>
+                                <CardHeader>
+                                    Officer Incharge Details
+                                </CardHeader>
+                                <CardBody>
+                                    <form>
+                                        <Row>
+                                            <Col lg="6">
+                                                <FormGroup>
+                                                    <Label for="exampleEmail">
+                                                        Officer Name
+                                                    </Label>
+                                                    <Input
+                                                        type="text"
+                                                        name="officername"
+                                                        id="officername"
+                                                        placeholder="Enter Officer's Name"
+                                                    />
+                                                </FormGroup>
+                                            </Col>
+                                            <Col lg="3">
+                                                <FormGroup>
+                                                    <Label for="exampleEmail">
+                                                        Officer ID
+                                                    </Label>
+                                                    <Input
+                                                        type="text"
+                                                        name="officerid"
+                                                        id="officerid"
+                                                        placeholder="Enter Officer Id"
+                                                    />
+                                                </FormGroup>
+                                            </Col>
+                                            <Col lg="3">
+                                                <FormGroup>
+                                                    <Label for="exampleEmail">
+                                                        Police Station
+                                                    </Label>
+                                                    <Input
+                                                        type="text"
+                                                        name="police_station"
+                                                        id="police_station"
+                                                        placeholder="Enter Police Station's Name"
+                                                    />
+                                                </FormGroup>
+                                            </Col>
+                                        </Row>
+
+                                        <Row>
+                                            <Col lg="4">
+                                                <FormGroup>
+                                                    <Label for="exampleEmail">
+                                                        District Name
+                                                    </Label>
+                                                    <Input
+                                                        type="text"
+                                                        name="dist_name"
+                                                        id="dist_name"
+                                                        placeholder="Enter the Disctict's Name"
+                                                    />
+                                                </FormGroup>
+                                            </Col>
+                                            <Col lg="4">
+                                                <FormGroup>
+                                                    <Label for="exampleEmail">
+                                                        City Name
+                                                    </Label>
+                                                    <Input
+                                                        type="text"
+                                                        name="city_name"
+                                                        id="city_name"
+                                                        placeholder="Enter the City's Name"
+                                                    />
+                                                </FormGroup>
+                                            </Col>
+                                            <Col lg="4">
+                                                <FormGroup>
+                                                    <Label for="exampleEmail">
+                                                        State Name
+                                                    </Label>
+                                                    <Input
+                                                        type="text"
+                                                        name="state_name"
+                                                        id="state_name"
+                                                        placeholder="Enter the State Name"
+                                                    />
+                                                </FormGroup>
+                                            </Col>
+                                        </Row>
+                                    </form>
+                                </CardBody>
+                            </Card>
+                            <Card>
+                                <CardHeader>Complaint Details</CardHeader>
+                                <CardBody>
+                                    <Row>
+                                        <Col lg="4">
+                                            <FormGroup>
+                                                <Label for="exampleEmail">
+                                                    FIR ID
+                                                </Label>
+                                                <Input
+                                                    type="text"
+                                                    name="firid"
+                                                    id="firid"
+                                                    placeholder="Enter FIR ID"
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                        <Col lg="2">
+                                            <FormGroup>
+                                                <Label for="exampleEmail">
+                                                    FIR Date
+                                                </Label>
+                                                <Input
+                                                    type="date"
+                                                    name="date"
+                                                    id="date"
+                                                    placeholder="Enter date"
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+
+                                    <FormGroup>
+                                        <Label for="exampleEmail">
+                                            FIR Description
+                                        </Label>
+                                        <Input
+                                            type="textarea"
+                                            name="firdesp"
+                                            id="firdesp"
+                                        />
+                                    </FormGroup>
+                                    <Row>
+                                        <Col lg="4">
+                                            <FormGroup>
+                                                <Label for="exampleEmail">
+                                                    Person Mentioned In The
+                                                    Video
+                                                </Label>
+                                                <Input
+                                                    type="text"
+                                                    name="vid_person"
+                                                    id="vid_person"
+                                                    placeholder="Enter Name Of The Person In The Video"
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                </CardBody>
+                            </Card>
+                            <Card>
+                                <CardHeader>Complainant Details</CardHeader>
+                                <CardBody>
+                                    <Row>
+                                        <Col lg="4">
+                                            <FormGroup>
+                                                <Label for="exampleEmail">
+                                                    Complainant Name
+                                                </Label>
+                                                <Input
+                                                    type="text"
+                                                    name="comp_name"
+                                                    id="comp_name"
+                                                    placeholder="Enter the Complainant's Name"
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                        <Col lg="4">
+                                            <FormGroup>
+                                                <Label for="exampleEmail">
+                                                    Contact Number Of The
+                                                    Complainant
+                                                </Label>
+                                                <Input
+                                                    className="col-lg-6"
+                                                    type="Number"
+                                                    name="complainant_no"
+                                                    id="complainant_no"
+                                                    placeholder="Enter Contact Number Of The Complainant"
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col lg="4">
+                                            <FormGroup>
+                                                <Label for="exampleEmail">
+                                                    Aadhar Card Number
+                                                </Label>
+                                                <Input
+                                                    type="number"
+                                                    name="aadhar"
+                                                    id="aadhar"
+                                                    placeholder="Enter The Aadhar Number"
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                        <Col lg="4">
+                                            <FormGroup>
+                                                <Label for="exampleEmail">
+                                                    Email Address
+                                                </Label>
+                                                <Input
+                                                    type="email"
+                                                    name="email"
+                                                    id="email"
+                                                    placeholder="Email Address"
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col lg="8">
+                                            <FormGroup>
+                                                <Label for="exampleEmail">
+                                                    Complainant's Address
+                                                </Label>
+                                                <Input
+                                                    type="text"
+                                                    name="comp_add"
+                                                    id="comp_add"
+                                                    placeholder="comp_add"
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+
+                                    <FormGroup>
+                                        <UncontrolledDropdown>
+                                            <DropdownToggle
+                                                caret
+                                                data-toggle="dropdown"
+                                            >
+                                                Gender
+                                            </DropdownToggle>
+                                            <DropdownMenu>
+                                                <DropdownItem>
+                                                    Male
+                                                </DropdownItem>
+                                                <DropdownItem>
+                                                    Female
+                                                </DropdownItem>
+                                                <DropdownItem>
+                                                    Others
+                                                </DropdownItem>
+                                            </DropdownMenu>
+                                        </UncontrolledDropdown>
+                                    </FormGroup>
+                                </CardBody>
+                            </Card>
+                            <Row>
+                                <Col className="mr-auto ml-auto" lg="2">
+                                    <Button color="primary" type="submit">
+                                        Submit
+                                    </Button>
+                                </Col>
+                            </Row>
                             <Card>
                                 <CardBody>
                                     <Row className="justify-content-center">
