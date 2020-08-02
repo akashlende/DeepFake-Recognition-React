@@ -25,12 +25,10 @@ export default class LoginModal extends Component {
         };
         this.handleLogin = this.handleLogin.bind(this);
         this.handleSignup = this.handleSignup.bind(this);
-
         this.changeForm = this.changeForm.bind(this);
     }
 
     componentDidUpdate() {
-        //4
         if (this.state.lang !== config.language) {
             this.setState({
                 lang: config.language,
