@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-    Modal,
-    ModalBody,
-    FormText,
-    FormGroup,
-    Label,
-    Button,
-    Row,
-} from "reactstrap";
+import { Modal, ModalBody, FormText, FormGroup, Label, Button, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 import { AvForm, AvField } from "availity-reactstrap-validation";
 import Axios from "axios";
@@ -98,29 +90,16 @@ export default class LoginModal extends Component {
                             ? content[this.state.lang].loginmodal.title46
                             : content[this.state.lang].loginmodal.title47}
                     </h4>
-                    <Link
-                        to="/home"
-                        className=""
-                        data-dismiss="modal"
-                        aria-hidden="true"
-                    >
+                    <Link to="/home" className="" data-dismiss="modal" aria-hidden="true">
                         <i className="tim-icons icon-simple-remove text-danger" />
                     </Link>
                 </div>
                 <ModalBody>
                     <AvForm
-                        onValidSubmit={
-                            this.state.isLogin
-                                ? this.handleLogin
-                                : this.handleSignup
-                        }
+                        onValidSubmit={this.state.isLogin ? this.handleLogin : this.handleSignup}
                     >
                         <FormGroup hidden={this.state.isLogin}>
-                            <Label
-                                for="fullName"
-                                style={{ color: "black" }}
-                                className="h4"
-                            >
+                            <Label for="fullName" style={{ color: "black" }} className="h4">
                                 {content[this.state.lang].loginmodal.title33}
                             </Label>
                             <AvField
@@ -128,13 +107,9 @@ export default class LoginModal extends Component {
                                 type="text"
                                 name="fullName"
                                 id="fullName"
-                                errorMessage={
-                                    content[this.state.lang].loginmodal.title48
-                                }
+                                errorMessage={content[this.state.lang].loginmodal.title48}
                                 bsSize="lg"
-                                placeholder={
-                                    content[this.state.lang].loginmodal.title49
-                                }
+                                placeholder={content[this.state.lang].loginmodal.title49}
                                 required={!this.state.isLogin}
                                 style={{ color: "black" }}
                             />
@@ -143,11 +118,7 @@ export default class LoginModal extends Component {
                             </FormText>
                         </FormGroup>
                         <FormGroup hidden={this.state.isLogin}>
-                            <Label
-                                for="email"
-                                style={{ color: "black" }}
-                                className="h4"
-                            >
+                            <Label for="email" style={{ color: "black" }} className="h4">
                                 {content[this.state.lang].loginmodal.title35}
                             </Label>
                             <AvField
@@ -155,23 +126,15 @@ export default class LoginModal extends Component {
                                 type="email"
                                 name="email"
                                 id="email"
-                                errorMessage={
-                                    content[this.state.lang].loginmodal.title50
-                                }
+                                errorMessage={content[this.state.lang].loginmodal.title50}
                                 bsSize="lg"
-                                placeholder={
-                                    content[this.state.lang].loginmodal.title51
-                                }
+                                placeholder={content[this.state.lang].loginmodal.title51}
                                 required={!this.state.isLogin}
                                 style={{ color: "black" }}
                             />
                         </FormGroup>
                         <FormGroup>
-                            <Label
-                                for="username"
-                                style={{ color: "black" }}
-                                className="h4"
-                            >
+                            <Label for="username" style={{ color: "black" }} className="h4">
                                 {content[this.state.lang].loginmodal.title36}
                             </Label>
                             <AvField
@@ -179,13 +142,9 @@ export default class LoginModal extends Component {
                                 type="text"
                                 name="username"
                                 id="username"
-                                errorMessage={
-                                    content[this.state.lang].loginmodal.title52
-                                }
+                                errorMessage={content[this.state.lang].loginmodal.title52}
                                 bsSize="lg"
-                                placeholder={
-                                    content[this.state.lang].loginmodal.title53
-                                }
+                                placeholder={content[this.state.lang].loginmodal.title53}
                                 required
                                 style={{ color: "black" }}
                             />
@@ -194,11 +153,7 @@ export default class LoginModal extends Component {
                             </FormText>
                         </FormGroup>
                         <FormGroup className="mb-4">
-                            <Label
-                                for="password"
-                                className="h4"
-                                style={{ color: "black" }}
-                            >
+                            <Label for="password" className="h4" style={{ color: "black" }}>
                                 {content[this.state.lang].loginmodal.title37}
                             </Label>
                             <AvField
@@ -215,15 +170,11 @@ export default class LoginModal extends Component {
                                 id="password"
                                 errorMessage={
                                     this.state.isLogin
-                                        ? content[this.state.lang].loginmodal
-                                              .title54
-                                        : content[this.state.lang].loginmodal
-                                              .title56
+                                        ? content[this.state.lang].loginmodal.title54
+                                        : content[this.state.lang].loginmodal.title56
                                 }
                                 bsSize="lg"
-                                placeholder={
-                                    content[this.state.lang].loginmodal.title55
-                                }
+                                placeholder={content[this.state.lang].loginmodal.title55}
                                 required
                                 autoComplete="off"
                                 style={{ color: "black" }}
@@ -237,19 +188,15 @@ export default class LoginModal extends Component {
                         <Row className="justify-content-center mt-3">
                             <h5 style={{ color: "black" }}>
                                 {this.state.isLogin
-                                    ? content[this.state.lang].loginmodal
-                                          .title57
-                                    : content[this.state.lang].loginmodal
-                                          .title58}
+                                    ? content[this.state.lang].loginmodal.title57
+                                    : content[this.state.lang].loginmodal.title58}
                             </h5>
                         </Row>
                         <Row className="justify-content-center">
                             <Button color="info" onClick={this.changeForm}>
                                 {this.state.isLogin
-                                    ? content[this.state.lang].loginmodal
-                                          .title59
-                                    : content[this.state.lang].loginmodal
-                                          .title60}
+                                    ? content[this.state.lang].loginmodal.title59
+                                    : content[this.state.lang].loginmodal.title60}
                             </Button>
                         </Row>
                     </AvForm>
