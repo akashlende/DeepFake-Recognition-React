@@ -19,6 +19,7 @@ import Home from "views/Home.jsx";
 import Classify from "views/Classify.jsx";
 import History from "views/History.jsx";
 import About from "views/About.jsx";
+import Archive from "./views/Archive.jsx";
 // import config from "./config";//1
 // import content from "./content.json";//2
 
@@ -42,6 +43,13 @@ var routes = [
 		name: "History",
 		icon: "fa fa-history",
 		component: History,
+		layout: "/admin",
+	},
+	{
+		path: "/archive",
+		name: "Archive",
+		icon: "fas fa-archive",
+		component: Archive,
 		layout: "/admin",
 	},
 	{
