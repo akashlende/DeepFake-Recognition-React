@@ -1,6 +1,6 @@
 const config = {
-    serverURL: "https://deepfake.westus2.cloudapp.azure.com",
-    language: "en",
+	serverURL: "http://localhost:5000",
+	language: "en",
 };
 
 export default config;
